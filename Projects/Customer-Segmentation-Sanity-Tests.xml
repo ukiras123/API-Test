@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e649b1a4-8605-44bd-966a-aa197a79d344" activeEnvironment="CI" name="P03 - Customer Segmentation Sanity Tests" resourceRoot="" soapui-version="5.1.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestSuite Report"/>
+</xml-fragment>]]></con:setting><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder">C:\test</con:setting></con:settings><con:interface xsi:type="con:RestService" id="978c7b89-1314-49e7-bb32-653adf7cab50" wadlVersion="http://wadl.dev.java.net/2009/02" name="Customer Segmentation" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#endpoint}</con:endpoint></con:endpoints><con:resource name="Membership" path="/snapshot/customer/membership" id="079563a5-9aa3-4b55-99c5-56189b966aee"><con:settings/><con:parameters><con:parameter><con:name>filter</con:name><con:value>brand:eq(PA)</con:value><con:style>QUERY</con:style><con:default>brand:eq(PA)</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Segmentation" id="42d28f81-80b2-433e-8cf6-492c2353d858" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:mem="https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership">mem:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain</con:mediaType><con:status>406 400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/soma-schema/customerdata/201501">ns:snapshots</con:element></con:representation><con:request name="Segmentation Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="c574ce40-c3dc-4b05-9e73-652748969d72" name="TS01-SEGMENTATION POSITIVE TESTS"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1f1c9b01-e029-480b-97a9-6584a762790b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC01-Segmentation XSD Validation" searchProperties="true" disabled="true"><con:settings/><con:testStep type="restrequest" name="Segmentation Test Request" id="9d6e1c6f-eb78-4c80-9111-ddbc2bacc96f"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Test Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="1a7b1fb5-62f7-4f1a-906c-c157864f6217" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(027894484)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="fcd62f90-d6f0-4ef8-b803-2d82c99bb31a"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${Segmentation Test Request#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="CustomerSegmentationSchemaValidation" id="d61f625d-91dd-4746-806c-5ba9b345fb9d"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>188f8613-9d7f-4014-aad0-a9999012e708</con:id><con:isGroup>false</con:isGroup><con:sourceId>9d6e1c6f-eb78-4c80-9111-ddbc2bacc96f</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="4f7a36c3-29ca-44cc-9491-73621e7199ca"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/customerSegmentationData-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "Customer Segmentation API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected =Customer Segmentation API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="1d8fa283-ac8c-4ea3-9452-9ee3e2d7792c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC02-Segmentation Content Type Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Segmentation Default Request" id="b1ef41d7-6633-4433-ace5-bf03406dd8fc"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Default Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="1f651d55-4218-42cf-bc28-fa767a9161fd" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(499408813)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="assertionteststep" name="Check Default ContentType-Json" id="e029d7c0-7aa0-41b9-98bf-67023abcd823"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b19480d1-2148-4cca-8a6d-e7f8dd6f514c</con:id><con:isGroup>false</con:isGroup><con:sourceId>b1ef41d7-6633-4433-ace5-bf03406dd8fc</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="6f7edefc-e4a3-4c64-87a1-67fb31e998be"><con:configuration><scriptText>// To validate API response headers
+def expVal =  messageExchange.modelItem.testCase.testSteps['Segmentation Default Request'].testRequest.response.getResponseHeaders()["Content-Type"][0]
+def actVal = "application/json"
+log.info " [EXPECTED | ACTUAL] - [Default Content Type] - [Expected = $expVal | Actual = $actVal ]"
+assert expVal == actVal : "Default Content Type Not Valid"
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="restrequest" name="Segmentation Json Request" id="09e20d4d-f00b-41cf-856e-f926b09553ae"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Json Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="dfebfecb-4eeb-448c-ba06-0d41cd742104" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(499408813)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="assertionteststep" name="Check Json ContentType" id="dc7077fc-01d2-4a28-915c-de30a3eaa284"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b19480d1-2148-4cca-8a6d-e7f8dd6f514c</con:id><con:isGroup>false</con:isGroup><con:sourceId>b1ef41d7-6633-4433-ace5-bf03406dd8fc</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="6f7edefc-e4a3-4c64-87a1-67fb31e998be"><con:configuration><scriptText>// To validate API response headers
+def expVal =  messageExchange.modelItem.testCase.testSteps['Segmentation Json Request'].testRequest.response.getResponseHeaders()["Content-Type"][0]
+def actVal = "application/json"
+log.info " [EXPECTED | ACTUAL] - [Content Type] - [Expected = $expVal | Actual = $actVal ]"
+assert expVal == actVal : "Content Type Not Valid"
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="restrequest" name="Segmentation Xml Request" id="04a9c32b-e34d-457c-b4d2-652591000b0b"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Xml Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d2b1df90-1e31-4593-b9bc-a539195f8401" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(499408813)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="assertionteststep" name="Check XML ContentType" id="f485ed55-67a5-4b5b-af3d-1a5fc56ab334"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b19480d1-2148-4cca-8a6d-e7f8dd6f514c</con:id><con:isGroup>false</con:isGroup><con:sourceId>b1ef41d7-6633-4433-ace5-bf03406dd8fc</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="6f7edefc-e4a3-4c64-87a1-67fb31e998be"><con:configuration><scriptText>// To validate API response headers
+def expVal =  messageExchange.modelItem.testCase.testSteps['Segmentation Xml Request'].testRequest.response.getResponseHeaders()["Content-Type"][0]
+def actVal = "application/xml"
+log.info " [EXPECTED | ACTUAL] - [Content Type] - [Expected = $expVal | Actual = $actVal ]"
+assert expVal == actVal : "Content Type Not Valid"
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>e029d7c0-7aa0-41b9-98bf-67023abcd823</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>dc7077fc-01d2-4a28-915c-de30a3eaa284</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="c434ea78-bc69-48c6-937b-b978f6067f2b" name="TS02- SEGMENTATION NEGETIVE TESTS"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d9bfce7d-01ab-4e08-add7-456c25218895" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS02-TC01-Segmentation Content Type Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Segmentation Json Request" id="e1e0adf7-d01b-41df-b292-614d9143ff23"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Json Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="dfebfecb-4eeb-448c-ba06-0d41cd742104" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(499408813)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="assertionteststep" name="Check Application/XML ContentType" id="eeee6476-c52d-4897-91f5-ae3d2836171b"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>6ada2635-3708-4904-a433-4b41469433ba</con:id><con:isGroup>false</con:isGroup><con:sourceId>e1e0adf7-d01b-41df-b292-614d9143ff23</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="74b9d2c0-66af-4bc3-a532-d911445fcd74"><con:configuration><scriptText>// To validate API response headers
+def expVal =  messageExchange.modelItem.testCase.testSteps['Segmentation Json Request'].testRequest.response.getResponseHeaders()["Content-Type"][0]
+def actVal = "application/xml"
+log.info " [EXPECTED | ACTUAL] - [Content Type] - [Expected = $expVal | Actual = $actVal ]"
+assert expVal != actVal : "Content Type should be different"
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="restrequest" name="Segmentation Xml Request" id="88c5f183-0f15-459f-8e5f-eb2256a0d017"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Segmentation Xml Request" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d2b1df90-1e31-4593-b9bc-a539195f8401" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(499408813)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="assertionteststep" name="Check application/json ContentType" id="b913149a-ebf9-4cd0-969f-af3cf0b8a67f"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>6b61128f-591c-4f23-aa6f-7bc216860d6f</con:id><con:isGroup>false</con:isGroup><con:sourceId>88c5f183-0f15-459f-8e5f-eb2256a0d017</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="8329f2cf-746a-49f4-8bc4-929a4fe16e4b"><con:configuration><scriptText>// To validate API response headers
+def expVal =  messageExchange.modelItem.testCase.testSteps['Segmentation Xml Request'].testRequest.response.getResponseHeaders()["Content-Type"][0]
+def actVal = "application/json"
+log.info " [EXPECTED | ACTUAL] - [Content Type] - [Expected = $expVal | Actual = $actVal ]"
+assert expVal != actVal : "Content Type Should be different"
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>e029d7c0-7aa0-41b9-98bf-67023abcd823</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>dc7077fc-01d2-4a28-915c-de30a3eaa284</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="447698db-2594-4b52-8d67-dca21ecbb701" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS02-TC01-Segmentation Invalid URL" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SegmentationRequest" id="8c10be64-8ff9-401f-903f-96914f30b96d"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SegmentationRequest" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="97ec724b-74e2-429a-9f95-688a2c1531f2" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);InvalidURL" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="323c307b-8ed3-4832-8a1b-89de6953ebb3" name="TS03-SEGMENTATION STANDARDS VALIDATION"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d8d963f8-7d7d-499d-9912-aa216ec6aa00" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS03-TC01-Segmentation Node Exists" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SegmentationRequest" id="83142a6e-e4af-413b-b14a-fdb08e61f89a"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SegmentationRequest" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="13156059-72e7-4822-9dec-4432acb8fb27" name="Valid HTTP Status Codes"><con:configuration><codes>200
+</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="96ed090f-e3e8-4244-82d0-36ef64a36731" name="Check count of [customerMemberships]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/customerdata/201501';
+ count(//ns1:snapshots[1]/ns1:customerMemberships[1])</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="c7926702-d193-419a-95d4-6b0a04af43ff" name="Check for existance of [query ]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/customerdata/201501'; 
+exists(//ns1:snapshots[1]/@query)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5b19ed5f-9e13-4102-a69f-b542116e4e7d" name="Check for existance of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/customerdata/201501';
+exists( //ns1:snapshots[1]/ns1:currentAsOf[1])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="2cfb2058-1b5d-4479-9757-a1a57a9defc7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS03-TC02-Segmentation Name Space check" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SegmentationRequest" id="f8f8bf0b-87a0-4584-8805-78ddae1143f7"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SegmentationRequest" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="4670f97c-27be-4f68-a37c-7f245bdd50d1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="GetCustomerDetailsFromResponse" id="13a7f7af-c707-434f-8304-b54685a0a01e"><con:settings/><con:config><script>// Obtain API response into a variable
+def response = context.expand( '${SegmentationRequest#Response}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", response)
+
+def root = new XmlSlurper().parseText(response) 
+
+
+context.setProperty("xmlRoot", root)
+
+
+
+</script></con:config></con:testStep><con:testStep type="assertionteststep" name="VerifyNameSpace" id="7d9b9fb6-ef2d-4aa6-8bd3-7ba98b309f85"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>305f0e53-0ea4-4158-87cf-89e9bcfc6e66</con:id><con:isGroup>false</con:isGroup><con:sourceId>f8f8bf0b-87a0-4584-8805-78ddae1143f7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="4fcb53e7-dcc0-4c16-8a0d-08cad028bc30"><con:configuration><scriptText>//to get name space
+def nsRoot = new XmlParser(false, false).parseText(context.xmlResponse)
+
+// get name space 
+def actVal = nsRoot.@'xmlns'
+
+def expVal ='http://wsapi.guthy-renker.com/soma-schema/customerdata/201501'
+
+log.info " [EXPECTED | ACTUAL] - [Element: NameSPace]  - [Expected = $expVal | Actual = $actVal ]"
+
+assert actVal == expVal : "Expected = $expVal | Actual = $actVal"
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="149c44aa-ff94-47f3-8780-886cbdc0d884" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS03-TC03-Segmentation Current As Of is in UTC" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SegmentationRequest" id="8fd88c1d-7729-4859-b70c-fcb1613e49fd"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SegmentationRequest" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="4670f97c-27be-4f68-a37c-7f245bdd50d1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="GetCustomerDetailsFromResponse" id="cbf0731a-0f86-40dc-98d7-d3788cb8d626"><con:settings/><con:config><script>// Obtain API response into a variable
+def response = context.expand( '${SegmentationRequest#Response}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", response)
+
+def root = new XmlSlurper().parseText(response) 
+
+
+context.setProperty("xmlRoot", root)
+
+
+
+</script></con:config></con:testStep><con:testStep type="assertionteststep" name="Verify Current As Of is in UTC" id="e1997846-155f-459f-a92d-352a05424407"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>305f0e53-0ea4-4158-87cf-89e9bcfc6e66</con:id><con:isGroup>false</con:isGroup><con:sourceId>8fd88c1d-7729-4859-b70c-fcb1613e49fd</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="4fcb53e7-dcc0-4c16-8a0d-08cad028bc30"><con:configuration><scriptText>def root = context.xmlRoot
+// Get actual 'currentAsOf' from the parsed response
+def actVal = root.currentAsOf.text()
+
+// Define expected value
+def expVal = "Z"
+
+log.info " [EXPECTED | ACTUAL] - [Element: currentAsOf] - [Expected = $expVal | Actual = $actVal ]"
+
+assert actVal.endsWith('Z'): "Expected = Z | Actual = $actVal"</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="323f24c2-72bd-4393-8a3a-5bb2283220bd" name="TS04-TC04 - VERIFY EXISTENCE CUSTOMER DETAILS"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="2cbb0ac3-17fa-477d-842a-35721f54a62e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS04-TC03-Segmentation Customer Details" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SegmentationRequest" id="4e50d3f0-af11-4154-841d-c35d252aa61f"><con:settings/><con:config service="Customer Segmentation" resourcePath="/snapshot/customer/membership" methodName="Segmentation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SegmentationRequest" id="c94936b2-04b6-4ad1-a279-a0ff67c65c6a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-segmentation-qa.cloudhub.io/snapshot/customer/membership</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="4670f97c-27be-4f68-a37c-7f245bdd50d1" name="Valid HTTP Status Codes 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="4278002e-b476-41a1-b176-7fdbe1c6f21a" name="Verify existence of CustomerMembership"><con:configuration><path>$.snapshots.customerMemberships[0].customerMembership</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="bc90fae5-101d-4fef-a6ad-54aaa448233d" name="Verify existence of Brand"><con:configuration><path>$.snapshots.customerMemberships[0].customerMembership.brand</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="0ebdf426-a9fa-44b1-9665-d8a1d2a6b928" name="Verify existence of onLineMember"><con:configuration><path>$.snapshots.customerMemberships[0].customerMembership.onLineMember</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="6d4398eb-6bea-41ca-943f-9d55a3672dbb" name="Verify existence of hasEverCustomized"><con:configuration><path>$.snapshots.customerMemberships[0].customerMembership.hasEverCustomized</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="6311ed33-2ce3-480a-9764-935f2e435700" name="Verify existence of lastShipment"><con:configuration><path>$.snapshots.customerMemberships[0].customerMembership.lastShipment</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="filter" value="brand:eq(PA);accountNumber:eq(027894484)" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="OVERRIDE">${#Project#endpoint}</con:endpoint></con:endpointStrategy><con:requirements/><con:properties><con:property><con:name>endpoint</con:name><con:value>http://10.92.41.155:8380</con:value></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name></con:property><con:property><con:name>password</con:name></con:property></con:properties><con:afterLoadScript>import groovy.util.*
+import java.io.File	// You need Java File utils
+
+// Get projects active environment
+log.info "Active Environment set to : "+ project.activeEnvironment.name 
+def active_env = context.expand( '${#Project#ActiveEnv}' )
+
+// Set this as active environment
+project.setActiveEnvironment(active_env)
+log.info "Confirm Active Env name: " + project.activeEnvironment.name
+
+// Get SoapUI Groovy Utils
+groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+//Get Project path
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def parentPath = new File(projectFilePath).getParentFile()
+def projectPath = parentPath.toString()
+def sourcePath = new File(projectPath).getParentFile()
+
+// Get Confg File Location
+def confFile = sourcePath.toString() + "/Config/customer_segmentation.properties.groovy"
+log.info "Config File Name is: " + confFile
+
+// Find active environment and get the endpoint URL
+def config = new ConfigSlurper().parse(new File(confFile).toURL())
+def env = config.active_env
+log.info " - Active Environment is: " + env
+def endpoint = config.endpoints."$env".endpoint
+//def path = config.endpoints."$env".path
+
+// Set project level property
+project.setPropertyValue( "endpoint",endpoint.toString() )
+//project.setPropertyValue( "path",path.toString() )
+
+def username = config.http_auth.username
+def password = config.http_auth.password
+log.info " - HTTP Authentication user name/password : " + username + " / "+ password
+project.setPropertyValue( "username",username.toString() )
+project.setPropertyValue( "password",password.toString() )
+
+
+
+</con:afterLoadScript><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>c</con:password></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:x</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>sun.jdbc.odbc.JdbcOdbcDriver</con:driver><con:connectionString>jdbc:odbc:df?user=fc&amp;password=PASS_VALUE</con:connectionString><con:password>ffdf</con:password></con:databaseConnection></con:databaseConnectionContainer><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:reportTemplates><con:name>Changed Offer Report</con:name><con:reportType>TESTSUITE</con:reportType><con:reportLevel>MAINREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <title>
+      <band height="70">
+         <textField>
+            <reportElement x="159" y="13" width="229" height="42"/>
+            <textElement>
+               <font size="26"/>
+            </textElement>
+            <textFieldExpression class="java.lang.String">$F{name} + " Report"</textFieldExpression>
+         </textField>
+      </band>
+   </title>
+   <pageHeader>
+      <band/>
+   </pageHeader>
+   <detail>
+      <band height="122">
+         <!--SUBREPORTS UNDER HERE-->
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{FailedTestSteps}</dataSourceExpression>
+            <subreportExpression>"subreport:FailedTestStepsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{TestCaseCoverage}</dataSourceExpression>
+            <subreportExpression>"subreport:TestCaseCoverageChart"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{TestStepResults}</dataSourceExpression>
+            <subreportExpression>"subreport:TestStepResultsReport"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:subreports>FailedTestStepsReport</con:subreports><con:subreports>TestCaseCoverageChart</con:subreports><con:subreports>TestStepResultsReport</con:subreports><con:scope>PROJECT</con:scope></con:reportTemplates><con:reportTemplates>
+  <con:name>Changed Offer Test Suite Report</con:name>
+  <con:reportType>TESTSUITE</con:reportType>
+  <con:reportLevel>SUBREPORT</con:reportLevel>
+  <con:nameInReport>FailedTestSteps</con:nameInReport>
+  <con:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FailedTestSteps" language="groovy" pageWidth="535" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <parameter name="FlowLayout" class="java.lang.Boolean"/>
+   <field name="testStepName" class="java.lang.String"/>
+   <field name="messages" class="java.util.List"/>
+   <field name="detail" class="java.lang.String"/>
+   <field name="icon" class="java.lang.String"/>
+   <detail>
+      <band height="101">
+         <break>
+            <reportElement positionType="Float" x="0" y="1" width="100" height="1">
+               <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+            </reportElement>
+         </break>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="Code" x="1" y="73" width="535" height="27"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">$F{detail}</textFieldExpression>
+         </textField>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="ColumnHeader" x="1" y="4" width="534" height="30" isRemoveLineWhenBlank="true"/>
+            <box bottomPadding="0">
+               <pen lineStyle="Double"/>
+               <topPen lineStyle="Double"/>
+               <leftPen lineStyle="Double"/>
+               <bottomPen lineStyle="Double"/>
+               <rightPen lineStyle="Double"/>
+            </box>
+            <textElement verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"Failed TestStep: " + $F{testStepName}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="0" y="34" width="535" height="28"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">$F{messages}</textFieldExpression>
+         </textField>
+         <line>
+            <reportElement x="1" y="67" width="534" height="3"/>
+         </line>
+      </band>
+   </detail>
+</jasperReport>]]></con:data>
+  <con:description>NO DESC</con:description>
+  <con:scope>PROJECT</con:scope>
+  <con:dataSource>ModelItem Properties</con:dataSource>
+</con:reportTemplates><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:environment name="CI"><con:service type="REST" name="SearchOfferAPI"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://10.92.41.155:8380</con:endpoint></con:service><con:service type="REST" name="Customer Segmentation"><con:endpoint>${#Project#endpoint}</con:endpoint></con:service><con:property><con:name>endpoint</con:name><con:value>https://csapi-segmentation-qa.cloudhub.io</con:value></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name><con:value>rnalluri</con:value></con:property><con:property><con:name>password</con:name><con:value>Welcome1</con:value></con:property><con:property><con:name>afterUpdate</con:name><con:value>2015-02-11T02:43:30Z</con:value></con:property><con:property><con:name>s_after</con:name><con:value>2015-05-05T21:36:46Z</con:value></con:property><con:property><con:name>filepathloaddata</con:name><con:value/></con:property><con:property><con:name>tdFileXLSX</con:name><con:value/></con:property><con:property><con:name>path</con:name><con:value>[:]</con:value></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password/></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/APPCSun445@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SetupCIbase/APPC53Bqwz@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setupciprocs/APPC53procs@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/APPTA7gSap@//ebsqa-scan.grc-network.net:1521/s_appdbtst</con:connectionString><con:password>sdsd</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:environment name="QA"><con:service type="REST" name="SearchOfferAPI"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://10.92.41.155:8380</con:endpoint></con:service><con:service type="REST" name="Customer Segmentation"><con:endpoint/></con:service><con:property><con:name>endpoint</con:name><con:value/></con:property><con:property><con:name>ActiveEnv</con:name><con:value/></con:property><con:property><con:name>username</con:name><con:value/></con:property><con:property><con:name>password</con:name><con:value/></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:x</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>COM.cloudscape.core.JDBCDriver</con:driver><con:connectionString>jdbc:cloudscape:sds?user=SETUPSNAPSHOT&amp;password=PASS_VALUE</con:connectionString><con:password>sdsd</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment></con:soapui-project>

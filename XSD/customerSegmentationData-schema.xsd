@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://wsapi.guthy-renker.com/customer-snapshot/membership/201501" xmlns="http://wsapi.guthy-renker.com/customer-snapshot/membership/201501" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="short-or-empty">
+		<xs:union memberTypes="xs:short empty-string" />
+	</xs:simpleType>
+	<xs:simpleType name="decimal-or-empty">
+		<xs:union memberTypes="xs:decimal empty-string" />
+	</xs:simpleType>
+	<xs:simpleType name="dateTime-or-empty">
+		<xs:union memberTypes="xs:dateTime empty-string" />
+	</xs:simpleType>
+	<xs:simpleType name="yes-no-or-empty">
+		<xs:union memberTypes="boolean-string empty-string" />
+	</xs:simpleType>
+	<xs:simpleType name="empty-string">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="boolean-string">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="Y"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="customerMembership">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="brand" type="xs:string"/>
+				<xs:element name="firstName" type="xs:string"/>
+				<xs:element name="lastName" type="xs:string"/>
+				<xs:element name="address">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="addressLine1" type="xs:string"/>
+							<xs:element name="addressLine2" type="xs:string"/>
+							<xs:element name="city" type="xs:string"/>
+							<xs:element name="state_province" type="xs:string"/>
+							<xs:element name="country" type="xs:string"/>
+							<xs:element name="postalCode" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="phone" type="xs:string"/>
+				<xs:element name="emailAddress" type="xs:string"/>
+				<xs:element name="onLineMember" type="yes-no-or-empty"/>
+				<xs:element name="membershipTenure" type="short-or-empty"/>
+				<xs:element name="validCCOnFile" type="xs:string"/>
+				<xs:element name="membershipSalesToDate" type="decimal-or-empty"/>
+				<xs:element name="customerSalesToDate" type="decimal-or-empty"/>
+				<xs:element name="lastSavedDate" type="dateTime-or-empty"/>
+				<xs:element name="hasEverCustomized" type="yes-no-or-empty"/>
+				<xs:element name="lastShipment">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="shipmentType" type="xs:string"/>
+							<xs:element name="pieceCount" type="xs:string"/>
+							<xs:element name="numPayments" type="short-or-empty"/>
+							<xs:element name="shippingAmount" type="decimal-or-empty"/>
+							<xs:element name="numShippingPayments" type="decimal-or-empty"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="segmentationScore" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="currency" use="optional" type="xs:string"/>
+			<xs:attribute name="accountNumber" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshots">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element name="customerMemberships">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="customerMembership" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="query" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

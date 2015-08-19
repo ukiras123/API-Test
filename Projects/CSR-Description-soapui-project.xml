@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="208c3338-3cfd-4594-ba10-4ebb3bccd490" activeEnvironment="Default" name="CSR Description" resourceRoot="" soapui-version="5.1.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="3f758445-3a1e-417b-8da3-2f6e9fe7bcdc" name="Brands"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="3e391f72-74f5-4c5b-8aa6-9cd611845df0" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OMX_Mkt_Offer_Description" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="IncludeOverview">true</con:setting></con:settings><con:testStep type="datasource" name="OMX_Mkt_Offers" id="09d496ab-6c7f-4a6f-a028-5455810f4721"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>${#Project#OMX_Mkt_Offer_Description}</file><worksheet>Data</worksheet><cell>B2</cell><ignoreEmpty>true</ignoreEmpty></con:configuration></con:dataSource><con:property>OFFER_CODE</con:property><con:property>ITEM_CODE </con:property><con:property>OFFER_DESCRIPTION</con:property><con:property>OFFER_MKT_DESCRIPTION</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="190af132-e7d1-4da8-b741-757a7269df81"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>Offers</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setup/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIl94ma6</con:password><con:query>select offer_code,offer_mkt_description as offer_description 
+from  s_offers
+where offer_code='${OMX_Mkt_Offers#OFFER_CODE}'
+</con:query><con:properties/></con:config></con:testStep><con:testStep type="assertionteststep" name="Validate_OfferDescription" id="84422b8a-6315-49cb-a0dc-9c918eecb991" disabled="true"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>1e9aae31-55a9-403b-80c3-f27e1831fdf6</con:id><con:isGroup>false</con:isGroup><con:sourceId>190af132-e7d1-4da8-b741-757a7269df81</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="b13e7dfe-5e80-466c-961e-5093a6891ee2"><con:configuration><scriptText>def DB_OfferDescription = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}' )
+def File_OfferDescription = context.expand( '${OMX_Mkt_Offers#OFFER_DESCRIPTION}' )
+
+def responseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(responseAsXml)
+
+if( dbdata.ResultSet.Row.size() > 0)
+{
+	assert DB_OfferDescription  == File_OfferDescription , 'Offer Description are not matching: Expected = ' +File_OfferDescription +' | Actual = '+DB_OfferDescription
+}
+else
+{
+	//assert 1==2 ,' Not able to find offer in the database.'
+	return false
+}
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="groovy" name="Validate_OfferDescription" id="f2d431bf-3043-4d86-a5cc-321f850c1fd9"><con:settings/><con:config><script>def DB_OfferDescription = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}' )
+def File_MKT_DESCRIPTION = context.expand( '${OMX_Mkt_Offers#OFFER_MKT_DESCRIPTION}' )
+
+
+def responseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(responseAsXml)
+def oFFER_CODE = context.expand( '${OMX_Mkt_Offers#OFFER_CODE}' )
+if( dbdata.ResultSet.Row.size() > 0)
+{
+	assert DB_OfferDescription  == File_MKT_DESCRIPTION , 'Offer Code:'+oFFER_CODE  +'.Offer Description are not matching: Expected = ' +File_MKT_DESCRIPTION+' | Actual = '+DB_OfferDescription
+}
+else
+{
+
+	assert 1==2 ,' Not able to find offer in the database.Offer Code :' + oFFER_CODE 
+	//assert false;
+}
+</script></con:config></con:testStep><con:testStep type="datagen" name="DataGen" id="b1eca311-06b3-4b31-bc0f-443b8346a9af"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Script"><con:configuration><script>testRunner.results[testRunner.results.size()-1].status</script></con:configuration><con:name>Results</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property><con:property type="Script"><con:configuration><script>
+def comments=''
+
+testRunner.results[testRunner.results.size()-1].messages.each() { 
+	msg -> 
+	comments= comments +''+ msg 
+	
+	}
+	return comments	</script></con:configuration><con:name>Comments</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="575f2f94-25f9-4e18-8fe1-63c1fc96800b"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="SubReport"><con:configuration/></con:dataSink><con:properties><con:property><con:name>Request</con:name><con:value>${OMX_Mkt_Offers#OFFER_CODE}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</con:value></con:property><con:property><con:name>Results</con:name><con:value>${DataGen#Results}</con:value></con:property><con:property><con:name>Comments</con:name><con:value>${DataGen#Comments}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="assertionteststep" name="Assertion TestStep" id="f4d9caf1-be96-4b1c-86d9-388097140177" disabled="true"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>bed42d11-a3c2-44d4-9379-eb4b51d52bb5</con:id><con:isGroup>false</con:isGroup><con:sourceId>190af132-e7d1-4da8-b741-757a7269df81</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer_Code_Match" id="a6bfe79c-c4da-4856-b5b3-e3638b3a05d0"><con:configuration><path>${OMX_Mkt_Offers#OFFER_CODE}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry><con:entry><con:id>9624621a-1a10-48bf-b72d-538f8aedd5bc</con:id><con:isGroup>false</con:isGroup><con:sourceId>190af132-e7d1-4da8-b741-757a7269df81</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer Description Match" id="ac3d09a1-3175-4ba4-86b5-c5bec22e176e"><con:configuration><path>${OMX_Mkt_Offers#OFFER_DESCRIPTION}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="7af2be74-2eba-4644-a6fc-18f1ef513d4f"><con:settings/><con:config><dataSourceStep>OMX_Mkt_Offers</dataSourceStep><targetStep>JDBC Request</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>b1eca311-06b3-4b31-bc0f-443b8346a9af</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>575f2f94-25f9-4e18-8fe1-63c1fc96800b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>84422b8a-6315-49cb-a0dc-9c918eecb991</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f2d431bf-3043-4d86-a5cc-321f850c1fd9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="58def19b-609c-407b-982b-6470fb8e9b12" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OOP Offers Marketing Description" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="IncludeOverview">true</con:setting></con:settings><con:testStep type="datasource" name="OOP_Mkt_Offers" id="a7f03a02-de71-4353-b6d2-d984487e3ca7"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>${#Project#OOPOffersMarketingDescription}</file><worksheet>OOP OFFERS - CP - Production</worksheet><cell>C2</cell><ignoreEmpty>true</ignoreEmpty></con:configuration></con:dataSource><con:property>OFFER_CODE</con:property><con:property>OFFER_DESCRIPTION</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="43ee0b9c-1a31-4a22-a1b7-47bc28adfda0"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>OOP_Offers</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:tfn/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIlKoiOw</con:password><con:query>select offer_code,offer_description 
+from  oop_offers 
+where offer_code='${OOP_Mkt_Offers#OFFER_CODE}'</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Validate_OOP_OfferDescription" id="6bbbba76-7952-4739-b1ad-b8586e9a45c8"><con:settings/><con:config><script>def  DB_OfferDescription = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}' )
+def File_OfferDescription = context.expand( '${OOP_Mkt_Offers#OFFER_DESCRIPTION}' )
+def responseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+
+def dbdata = new XmlParser().parseText(responseAsXml)
+def oFFER_CODE = context.expand( '${OOP_Mkt_Offers#OFFER_CODE}' )
+
+//
+//log.info DB_OfferDescription
+//log.info File_OfferDescription
+if( dbdata.ResultSet.Row.size() > 0)
+{
+	assert DB_OfferDescription  == File_OfferDescription , 'Offer Code:'+oFFER_CODE  +'.Offer Description are not matching: Expected = ' +File_OfferDescription +' | Actual = '+DB_OfferDescription
+}
+else
+{
+
+	assert 1==2 ,' Not able to find offer in the database.Offer Code :' + oFFER_CODE 
+	//assert false;
+}
+</script></con:config></con:testStep><con:testStep type="datagen" name="DataGen" id="85d48a67-9bd3-4d8f-bd84-90f06da4d3d0"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Script"><con:configuration><script>testRunner.results[testRunner.results.size()-1].status</script></con:configuration><con:name>Results</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property><con:property type="Script"><con:configuration><script>
+def comments=''
+
+testRunner.results[testRunner.results.size()-1].messages.each() { 
+	msg -> 
+	comments= comments +''+ msg 
+	
+	}
+	return comments	</script></con:configuration><con:name>Comments</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="db7036fd-4447-4633-91a4-51e1e3495f8f"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="SubReport"><con:configuration/></con:dataSink><con:properties><con:property><con:name>Request</con:name><con:value>${OOP_Mkt_Offers#OFFER_CODE}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</con:value></con:property><con:property><con:name>Results</con:name><con:value>${DataGen#Results}</con:value></con:property><con:property><con:name>Comments</con:name><con:value>${DataGen#Comments}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="assertionteststep" name="Assertion TestStep" id="3dd2d31c-5d0b-4f49-b999-2cae181e14bb" disabled="true"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>bed42d11-a3c2-44d4-9379-eb4b51d52bb5</con:id><con:isGroup>false</con:isGroup><con:sourceId>43ee0b9c-1a31-4a22-a1b7-47bc28adfda0</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer_Code_Match" id="a6bfe79c-c4da-4856-b5b3-e3638b3a05d0"><con:configuration><path>${OMX_Mkt_Offers#OFFER_CODE}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry><con:entry><con:id>9624621a-1a10-48bf-b72d-538f8aedd5bc</con:id><con:isGroup>false</con:isGroup><con:sourceId>43ee0b9c-1a31-4a22-a1b7-47bc28adfda0</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer Description Match" id="ac3d09a1-3175-4ba4-86b5-c5bec22e176e"><con:configuration><path>${OMX_Mkt_Offers#OFFER_DESCRIPTION}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="efa38702-69ca-4a95-9814-6e05791c9e56"><con:settings/><con:config><dataSourceStep>OOP_Mkt_Offers</dataSourceStep><targetStep>JDBC Request</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>b1eca311-06b3-4b31-bc0f-443b8346a9af</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>575f2f94-25f9-4e18-8fe1-63c1fc96800b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6bbbba76-7952-4739-b1ad-b8586e9a45c8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="59cd98ed-9d50-434b-a767-0abece616092" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Backend Offers Marketing Description" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="IncludeOverview">true</con:setting></con:settings><con:testStep type="datasource" name="BackendOffers" id="e744b57e-9f61-407d-a8e3-7f32cbd0f7dc"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>${#Project#Backendfilepath}</file><worksheet>Backend Offers</worksheet><cell>A2</cell><ignoreEmpty>true</ignoreEmpty></con:configuration></con:dataSource><con:property>OFFER_CODE</con:property><con:property>ITEM_CODE </con:property><con:property>OFFER_DESCRIPTION</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="353def44-8143-4d57-a765-3e3fb5aebad8"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>Offers</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setup/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIl94ma6</con:password><con:query>select BACKEND_OFFER_CODE,BACKEND_OFFER_DESCRIPTION
+from s_backend_offers 
+where BACKEND_OFFER_CODE='${BackendOffers#OFFER_CODE}'</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Validate_Backend_OfferDescription" id="3b80388b-efb5-4403-8b25-a2dcf1b8200e"><con:settings/><con:config><script>def DB_OfferDescription = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/BACKEND_OFFER_DESCRIPTION[1]}' )
+
+def File_OfferDescription = context.expand( '${BackendOffers#OFFER_DESCRIPTION}' )
+
+def responseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+
+def dbdata = new XmlParser().parseText(responseAsXml)
+def oFFER_CODE = context.expand( '${BackendOffers#OFFER_CODE}' )
+
+log.info DB_OfferDescription
+log.info File_OfferDescription
+if( dbdata.ResultSet.Row.size() > 0)
+{
+	assert DB_OfferDescription  == File_OfferDescription , 'Offer Code:'+oFFER_CODE  +'.Offer Description are not matching: Expected = ' +File_OfferDescription +' | Actual = '+DB_OfferDescription
+}
+else
+{
+
+	assert 1==2 ,' Not able to find offer in the database.Offer Code :' + oFFER_CODE 
+	//assert false;
+}
+</script></con:config></con:testStep><con:testStep type="datagen" name="DataGen" id="e9fd1437-8658-476c-babd-28894f7e06dd"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Script"><con:configuration><script>testRunner.results[testRunner.results.size()-1].status</script></con:configuration><con:name>Results</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property><con:property type="Script"><con:configuration><script>
+def comments=''
+
+testRunner.results[testRunner.results.size()-1].messages.each() { 
+	msg -> 
+	comments= comments +''+ msg 
+	
+	}
+	return comments	</script></con:configuration><con:name>Comments</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="8f04fca6-47e0-42cc-934b-771ff019c7d2"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="SubReport"><con:configuration/></con:dataSink><con:properties><con:property><con:name>Request</con:name><con:value>${BackendOffers#OFFER_CODE}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</con:value></con:property><con:property><con:name>Results</con:name><con:value>${DataGen#Results}</con:value></con:property><con:property><con:name>Comments</con:name><con:value>${DataGen#Comments}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="assertionteststep" name="Assertion TestStep" id="8343b778-46f9-47e6-ba9b-37b453ac9414" disabled="true"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>bed42d11-a3c2-44d4-9379-eb4b51d52bb5</con:id><con:isGroup>false</con:isGroup><con:sourceId>353def44-8143-4d57-a765-3e3fb5aebad8</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer_Code_Match" id="a6bfe79c-c4da-4856-b5b3-e3638b3a05d0"><con:configuration><path>${OMX_Mkt_Offers#OFFER_CODE}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_CODE[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry><con:entry><con:id>9624621a-1a10-48bf-b72d-538f8aedd5bc</con:id><con:isGroup>false</con:isGroup><con:sourceId>353def44-8143-4d57-a765-3e3fb5aebad8</con:sourceId><con:propertyName>ResponseAsXml</con:propertyName><con:assertion type="XPath Match" name="Offer Description Match" id="ac3d09a1-3175-4ba4-86b5-c5bec22e176e"><con:configuration><path>${OMX_Mkt_Offers#OFFER_DESCRIPTION}</path><content>${JDBC Request#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/OFFER_DESCRIPTION[1]}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="d840a359-1aeb-4a27-80a7-c6518b64ba54"><con:settings/><con:config><dataSourceStep>BackendOffers</dataSourceStep><targetStep>JDBC Request</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>b1eca311-06b3-4b31-bc0f-443b8346a9af</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>575f2f94-25f9-4e18-8fe1-63c1fc96800b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3b80388b-efb5-4403-8b25-a2dcf1b8200e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>Backendfilepath</con:name><con:value>E:\GR\SOMA\TestData\Backend Offers Marketing Description - CP v1.xlsx</con:value></con:property><con:property><con:name>OOPOffersMarketingDescription</con:name><con:value>E:\GR\SOMA\TestData\OOP Offers Marketing Description - CP - v1.xlsx</con:value></con:property><con:property><con:name>OMX_Mkt_Offer_Description</con:name><con:value>E:\GR\SOMA\TestData\OMX_Mkt_Offer_Description.xlsx</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>Offers</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setup/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIl94ma6</con:password></con:databaseConnection><con:databaseConnection><con:name>OOP_Offers</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:tfn/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIlKoiOw</con:password></con:databaseConnection></con:databaseConnectionContainer><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:reportTemplates><con:name>Customsubreport</con:name><con:reportType>TESTCASE</con:reportType><con:reportLevel>SUBREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <field name="Request" class="java.lang.String"/>
+   <field name="Response" class="java.lang.String"/>
+   <field name="Results" class="java.lang.String"/>
+   <field name="Comments" class="java.lang.String"/>
+   <columnHeader>
+      <band height="59">
+         <textField>
+            <reportElement style="SmallHeader" x="0" y="0" width="535" height="23"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"Test Data Report"</textFieldExpression>
+         </textField>
+         <staticText>
+            <reportElement style="ColumnHeader" x="0" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Request</text>
+         </staticText>
+         <staticText>
+            <reportElement style="ColumnHeader" x="70" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Response</text>
+         </staticText>
+         <staticText>
+            <reportElement style="ColumnHeader" x="140" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Results</text>
+         </staticText>
+          <staticText>
+            <reportElement style="ColumnHeader" x="210" y="35" width="100" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Comments</text>
+         </staticText>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="20">
+         <textField>
+            <reportElement x="0" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Request}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="70" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Response}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="140" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Results}</textFieldExpression>
+         </textField>
+         <textField isStretchWithOverflow="true">
+            <reportElement x="210" y="1" width="350" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Comments}</textFieldExpression>
+         </textField>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:scope>PROJECT</con:scope><con:dataSource xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:reportTemplates><con:reportTemplates><con:name>Customreport</con:name><con:reportType>TESTCASE</con:reportType><con:reportLevel>MAINREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <parameter name="IncludeOverview" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Project Overview"/>
+      <parameterDescription>Includes TestCase Overview information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+      <defaultValueExpression>"../../logos/header_logo.jpg"</defaultValueExpression>
+   </parameter>
+   <pageHeader>
+      <band height="51">
+         <image scaleImage="Clip" hAlign="Right" isUsingCache="false" onErrorType="Blank">
+            <reportElement x="0" y="0" width="535" height="51"/>
+            <imageExpression class="java.lang.String">$P{HeaderLogo}</imageExpression>
+         </image>
+      </band>
+   </pageHeader>
+   <columnHeader>
+      <band height="150">
+         <staticText>
+            <reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+            <textElement/>
+            <text>TestCase Results Report for</text>
+         </staticText>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="MainHeader" x="0" y="35" width="535" height="40"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"${=testCase.name}"</textFieldExpression>
+         </textField>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="310">
+         <!--SUBREPORTS UNDER HERE-->
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="1" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{ReportMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <subreport>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="31" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <dataSourceExpression>$P{TestCaseRequirements}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:RequirementsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="70" width="500" height="30"/>
+            <dataSourceExpression>$P{DataSink}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:Customsubreport"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:scope>PROJECT</con:scope></con:reportTemplates><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:environment name="QA"><con:property><con:name>Backendfilepath</con:name><con:value/></con:property><con:property><con:name>OOPOffersMarketingDescription</con:name><con:value/></con:property><con:property><con:name>OMX_Mkt_Offer_Description</con:name><con:value/></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>Offers</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setup/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIl94ma6</con:password></con:databaseConnection><con:databaseConnection><con:name>OOP_Offers</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:tfn/PASS_VALUE@ebsqa-scan.grc-network.net:1521:appdbint1</con:connectionString><con:password>APPIlKoiOw</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment></con:soapui-project>

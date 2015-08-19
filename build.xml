@@ -1,0 +1,13 @@
+<project name="SOAP-API-Automation-soapui-project" default="runSOAPUISuite" basedir=".">
+    <description>
+        SOMA API Automation Project
+    </description>
+	
+<target name="runSOAPUISuite">
+<exec executable="C:\Program Files\SmartBear\SoapUI-Pro-5.1.2\bin\testrunner.bat">
+<arg line='-r -f${basedir}\CI_Reports -o -R"JUnit-Style HTML Report" -EDefault ${basedir}\Projects\SOMA-Offer-Management-Tests.xml'/>
+</exec>
+</target>
+ 
+  
+</project>

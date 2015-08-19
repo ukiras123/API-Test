@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://wsapi.guthy-renker.com/soma-schema/shipping/201501" xmlns="http://wsapi.guthy-renker.com/soma-schema/shipping/201501" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="statusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="V"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="shipMethodEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="STD"/>
+			<xs:enumeration value="RUSH"/>
+			<xs:enumeration value="SDS"/>
+			<xs:enumeration value="2DAY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="shippingTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="statusEnum">
+								<xs:attribute name="name" use="optional" type="xs:string"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="description" type="xs:string"/>
+				<xs:element name="shippingMethods">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="shippingMethod" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="id" use="required" type="xs:string"/>
+											<xs:attribute name="method" use="required" type="shipMethodEnum"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="shippingRates">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="shippingRate" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="rate" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:decimal">
+														<xs:attribute name="method" use="required" type="shipMethodEnum"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="threshold" use="required" type="xs:decimal"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="tierBasis" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="orderTotal"/>
+									<xs:enumeration value="itemCount"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="omxData">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="omxShippingPolicy" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:int">
+											<xs:attribute name="cid" use="required" type="xs:int"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:string"/>
+			<xs:attribute name="currency" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element ref="shippingTable"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshots">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element name="shippingTables">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="shippingTable" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="query" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

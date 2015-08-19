@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:tns="http://ws.guthy-renker.com/soma/201407" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.guthy-renker.com/soma/201407">
+	<xs:element name="snapshot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element name="marketingOffer" type="tns:wsMarketingOfferWEB"/>
+			</xs:sequence>
+			<xs:attribute name="query" type="xs:string"/>
+			<xs:attribute name="mask" type="xs:string"/>			
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshots">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element name="marketingOffers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="marketingOffer" type="tns:wsMarketingOfferWEB"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="query" type="xs:string"/>
+			<xs:attribute name="mask" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="wsMarketingOfferWEB">
+		<xs:sequence>
+			<xs:element name="intent" type="xs:string" minOccurs="0" />
+			<xs:element name="code" type="xs:string" minOccurs="0"/>
+			<xs:element name="productLineCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="hostProductLineCode" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="version"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+			<xs:element minOccurs="0" name="status">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="name" type="xs:string"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="readyDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="liveDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="derivation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="sourceKey-Ref">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="entityId" type="xs:string" use="optional"/>
+										<xs:attribute name="code" type="xs:string" use="optional"/>
+										<xs:attribute name="uri" type="xs:string" use="optional"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="promotionTemplateCode" type="xs:string"/>
+						<xs:element minOccurs="0" name="offerPanelCode" type="xs:string"/>
+						<xs:element minOccurs="0" name="offerCode" type="xs:string"/>
+						<xs:element minOccurs="0" name="itemCode" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="venue">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="supervenue" type="xs:string"/>
+					</xs:sequence>
+					<xs:attribute name="code" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="secureCampaign" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="paymentDetail">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="unitPrice" type="xs:decimal"/>
+						<xs:element name="numberPayments" type="xs:int"/>
+						<xs:element name="firstPaymentAmount" type="xs:decimal"/>
+						<xs:element name="stdShipping" nillable="true">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute name="available" type="xs:boolean" />
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="rushShipping" nillable="true">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute name="available" type="xs:boolean" />
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="twoDayShipping" nillable="true">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute name="available" type="xs:boolean" />
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="sameDayShipping" nillable="true">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute name="available" type="xs:boolean" />
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="currency" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="customerServicePhoneNumber" type="xs:long"/>
+			<xs:element minOccurs="0" name="web">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cartTitle" nillable="true" type="xs:string"/>
+						<xs:element name="cartLanguage" nillable="true" type="xs:string"/>
+						<xs:element name="maxQuantity" nillable="true" type="xs:integer"/>
+						<xs:element name="coreItem" nillable="true" type="xs:boolean"/>
+						<xs:element name="tlmTollFreeNumber" nillable="true" type="xs:long"/>
+					</xs:sequence>
+					<xs:attribute name="lang" type="xs:string"  use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="fulfillment">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ffs" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="hpData">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="hpKeycode" type="xs:string"  nillable="true"/>
+						<xs:element name="hpProductNumber" type="xs:string"  nillable="true"/>
+						<xs:element name="hpMpgCode" type="xs:string"  nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>			
+		</xs:sequence>
+		<xs:attribute name="entityId" type="xs:string"/>
+		<xs:attribute name="event" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="error" >
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="xs:string"/>
+				<xs:element name="message" type="xs:string"/>
+				<xs:element minOccurs="0" name="detail" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="source" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://wsapi.guthy-renker.com/pim/product/201503" xmlns="http://wsapi.guthy-renker.com/pim/product/201503" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="statusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="I"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="product">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productType">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="code" use="required" type="xs:short"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="productLine">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="brandCode" type="xs:string"/>
+							<xs:element name="brandVersion" type="xs:string" minOccurs="0"/>
+							<xs:element name="brandGroup" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="status" type="statusEnum"/>
+				<xs:element name="erpItems" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="erpItem" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="itemStatus" type="statusEnum"/>
+										<xs:element name="itemDescription" type="xs:string"/>
+									</xs:sequence>
+									<xs:attribute name="code" use="required" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="components" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="component" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="productId" type="xs:string"/>
+									</xs:sequence>
+									<xs:attribute name="quantity" use="optional" type="xs:byte"/>
+									<xs:attribute name="gift" use="optional" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="bundleType" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="marketingTitle" type="xs:string"/>
+				<xs:element name="marketingShortDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="marketingLongDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="customerServiceDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="supplySize" type="xs:string" minOccurs="0"/>
+				<xs:element name="productSize" type="xs:string" minOccurs="0"/>
+				<xs:element name="fragrance" type="xs:string" minOccurs="0"/>
+				<xs:element name="benefits" type="xs:string" minOccurs="0"/>
+				<xs:element name="ingredients" type="xs:string" minOccurs="0"/>
+				<xs:element name="directions" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="products">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="product" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element ref="product"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="snapshots">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentAsOf" type="xs:dateTime"/>
+				<xs:element name="products">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="product" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="query" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="productMappings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productMapping" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="erpItemCode" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="status" use="required" type="statusEnum"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="productId" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="itemMappings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="itemMapping" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="productId" type="xs:string"/>
+						</xs:sequence>
+						<xs:attribute name="erpItemCode" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

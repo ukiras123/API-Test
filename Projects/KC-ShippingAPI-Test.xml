@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d9811593-1cc6-48b9-ad63-6b4ff0890b38" activeEnvironment="CI" name="P02 - KC - Shipping Tables" resourceRoot="" soapui-version="5.1.2" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="TS01 - Read Specific Shipping Info"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestSuite Report"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="fd8d0acb-71e5-4a5c-a29b-37c74ffba872" wadlVersion="http://wadl.dev.java.net/2009/02" name="ReadSpecifiedShippingTable" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#endpoint}</con:endpoint></con:endpoints><con:resource name="Shippingtable" path="/${#Project#endpath}/shippingtable/{shippingtableID}" id="b507d5f7-1f9a-42b1-9a52-1fc74d60859d"><con:settings/><con:parameters><con:parameter><con:name>shippingtableID</con:name><con:value>S67E</con:value><con:style>TEMPLATE</con:style><con:default>S67E</con:default></con:parameter></con:parameters><con:method name="Shippingtable" id="4d8c9e18-a6f4-4d1a-ae10-e4bbd1fe9db5" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/soma-schema/shipping/201501">ns:snapshot</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request" id="6f1d0d12-d042-43cc-a153-46185a90acec" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtable/S67E/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtable/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="80e0deec-8a7d-4703-8632-299fbc54867d" wadlVersion="http://wadl.dev.java.net/2009/02" name="ChangedShippingTables" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#endpoint}</con:endpoint></con:endpoints><con:resource name="Changedshippingtables" path="/${#Project#endpath}/shippingtables/changed?after={changeddate}" id="d4e57e60-f1ec-467b-8350-9dfb96b56d76"><con:settings/><con:parameters><con:parameter><con:name>shippingtableID</con:name><con:style>TEMPLATE</con:style></con:parameter><con:parameter><con:name>changeddate</con:name><con:value>2014-07-26T12:30:00-0700</con:value><con:style>TEMPLATE</con:style><con:default>2014-07-26T12:30:00-0700</con:default></con:parameter></con:parameters><con:method name="Changedshippingtables" id="a09e76f0-74b1-41bb-9adc-68499c8f304f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/soma-schema/shipping/201501">ns:snapshots</con:element></con:representation><con:request name="Request" id="22b89277-c9c0-426d-a929-3d173ba2b175" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtables/changed</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="6265be6d-2a62-46dc-a66c-ca835b063635" wadlVersion="http://wadl.dev.java.net/2009/02" name="Searchshippingtables" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#endpoint}</con:endpoint></con:endpoints><con:resource name="Searchshippingtables" path="/${#Project#endpath}/shippingtables?filter={searchcriteria}" id="676371bf-3513-487a-9ab2-15789217ab00"><con:settings/><con:parameters><con:parameter><con:name>searchcriteria</con:name><con:value>status:in(V,A);currency:eq(USD)</con:value><con:style>TEMPLATE</con:style><con:default>status:in(V,A);currency:eq(USD)</con:default></con:parameter></con:parameters><con:method name="Searchshippingtables" id="b3ce75c6-9b36-4083-a570-69be5dc29279" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/soma-schema/shipping/201501">ns:snapshots</con:element></con:representation><con:request name="Request" id="9b0207e9-5d7e-41ad-8531-425f8c583a93" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtables</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="980e0bc7-f249-4e53-abef-08283f36b6f4" name="TS01 - Read Specific Shipping Info"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="227b3fa0-2856-44a6-a314-97c1d85476b0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC01 - Schema Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="356bdecb-6065-46d9-9f0b-59dea49ed607"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="ValidateSchema" id="667eff77-61f7-46ba-a74f-05750eddab0b"><con:settings/><con:config><script>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+def xsdFile = context.expand( '${#Project#xsdFile}' )
+
+log.info xsdFile
+new File( xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )
+
+}
+//
+//import javax.xml.XMLConstants
+//import javax.xml.transform.stream.StreamSource
+//import javax.xml.validation.*
+//// setup validator
+//Validator validator;
+//def url = "E:\\GR\\KC\\shippingtable-schema.xsd"
+//log.info url
+//URI uri = new URI(url);
+//InputStream inp = uri.toURL().openStream();
+//try
+//{
+//SchemaFactory factory =
+//SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//StreamSource entitySs = new StreamSource(inp);
+//Schema schema = factory.newSchema(entitySs);
+//assert(schema != null);
+//validator = schema.newValidator();
+//}
+//finally
+//{
+//inp.close();
+//inp = null;
+//}
+//
+//
+//
+//def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+//
+//
+//
+//log.info response
+//validator.validate(new StreamSource(new StringReader(response)))</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="710fa6c9-dce8-4afb-9b68-5cdbe08b611f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC02 - Response Code Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="4f3d5e79-88f3-4850-a4a0-2645e10c4876"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="591f950e-8ef5-4daa-87ae-3f20a2e8e739" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="93b7b087-625e-41a8-8282-dd9761dfb127" name="Invalid HTTP Status Codes"><con:configuration><codes>410</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="ea26f451-6b21-4cce-b22c-5c18206b2163" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC03 - CurrentAsOf Date Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="ee6f8c4e-a7d0-4f45-80ac-d4b103dff477"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:assertion type="XPath Match" id="3b1d97a2-e759-4123-9294-6ffecc82f100" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshot/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="4e48ed06-f4c8-4bc0-8b77-662b70f3d0a3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC04 - Main Elements Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="df7803db-ce10-4675-821f-ffbae84372eb"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:assertion type="XPath Match" id="3b1d97a2-e759-4123-9294-6ffecc82f100" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshot/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="2b929266-9161-484f-b256-93a2eb350fab"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+assert dbdata.ResultSet.Row.DBSTATUS.text() == webdata.shippingTable.status.text()
+assert dbdata.ResultSet.Row.DBDESCRIPTION.text() == webdata.shippingTable.description.text()
+// Need to do assertions for shipping methods.
+
+
+//
+//
+////log.info webdata.shippingTable.status.text()
+//def nshippingmethods= webdata.shippingTable.shippingMethod.size()
+//
+//log.info webdata.shippingTable.shippingRates
+//
+//webdata.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+//def nrates = shippingRate.rate.size()
+//assert nshippingmethods==nrates,'Shipping methods are missing.'
+//}
+////webdata.shippingTable.shippingRates.each(shippingRate ->
+////
+////def nrate = shippingRate.rate.size()
+////
+////
+////}
+//
+////log.info webdata.shippingTable.shippingMethod[0].text()
+////log.info webdata.shippingTable.shippingMethod[1].text()
+////log.info webdata.shippingTable.shippingMethod.size()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="805457ca-34c7-4601-8d36-34314ccfb9bd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC05 - Shipping Method Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="daad038e-cf8f-42f0-a399-f65ea28b3239"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:assertion type="XPath Match" id="3b1d97a2-e759-4123-9294-6ffecc82f100" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshot/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="c4c47b9b-9201-44ce-93d1-95c2d18b095f"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="834f8d02-9a01-4616-8212-5707c6d82166"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+def nshippingmethods= webdata.shippingTable.shippingMethods.shippingMethod.size()
+
+//log.info webdata.shippingTable.shippingRates
+log.info webdata.shippingTable.shippingRates.@tierBasis[0]
+
+webdata.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+def nrates = shippingRate.rate.size()
+assert nshippingmethods==nrates,'Shipping methods are missing.'
+
+log.info shippingRate.@threshold
+for (i in 0.. nrates-1)
+{
+	log.info shippingRate.rate[i].@method +' - ' + shippingRate.rate[i].text()
+	//log.info shippingRate.rate[i].text()
+}
+
+}</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="b7d7a275-a1aa-4f6b-b82c-a3f4f0f256cb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC06 - OMX Data Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="74c777d6-52b1-4545-a58b-f54f139a8d1d"><con:settings/><con:config service="ReadSpecifiedShippingTable" resourcePath="/${#Project#endpath}/shippingtable/{shippingtableID}" methodName="Shippingtable" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="6c475e55-2431-4c1c-8618-c985de686ca5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/shippingtable/</con:originalUri><con:assertion type="XPath Match" id="3b1d97a2-e759-4123-9294-6ffecc82f100" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshot/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="2143577c-99b9-43a8-9792-4160819adf85"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="87f17dfe-5e6a-4ba1-81d9-59eeacccbc92"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+
+// OMX Data validation.
+log.info webdata.shippingTable.omxData.@cid[0]
+log.info webdata.shippingTable.omxData[0].omxShippingPolicy.text()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="40c2dbd0-a3ce-4e97-a389-5ec23dfc87a8" name="TS02 - Read Changed Shipping Table"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="fa9cf5aa-5ce7-49c3-ae27-04cda6bed7f9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC01 - Schema Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="ba006a60-8401-44c0-917c-672ed9bf6267"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="ValidateSchema" id="6e4d6491-0273-49d8-af27-fc441cde5680"><con:settings/><con:config><script>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+def xsdFile = context.expand( '${#Project#xsdFile}' )
+
+log.info xsdFile
+new File( xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )
+
+}
+//
+//import javax.xml.XMLConstants
+//import javax.xml.transform.stream.StreamSource
+//import javax.xml.validation.*
+//// setup validator
+//Validator validator;
+//def url = "E:\\GR\\KC\\shippingtable-schema.xsd"
+//log.info url
+//URI uri = new URI(url);
+//InputStream inp = uri.toURL().openStream();
+//try
+//{
+//SchemaFactory factory =
+//SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//StreamSource entitySs = new StreamSource(inp);
+//Schema schema = factory.newSchema(entitySs);
+//assert(schema != null);
+//validator = schema.newValidator();
+//}
+//finally
+//{
+//inp.close();
+//inp = null;
+//}
+//
+//
+//
+//def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+//
+//
+//
+//log.info response
+//validator.validate(new StreamSource(new StringReader(response)))</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ba006a60-8401-44c0-917c-672ed9bf6267</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="2b2dad98-a5ee-4fd1-b203-64ab177813a1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC02 - Response Code Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="48fd3c16-bb0b-4e89-bde1-b90ce7c56be1"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="98f0c3c6-1ac2-41bd-80d9-a85245a946be" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="c19afdf1-9aff-49d4-91e5-a84ab6dea4e1" name="Invalid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="847e04c2-8162-461f-b3c2-0c20c901bb6b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC03 - CurrentAsOf Date Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="dcaeede1-137b-47ae-ba7e-8cb90381ccde"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:assertion type="XPath Match" id="8eb82a25-b690-4f51-90ed-efe413dc577c" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshots/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="38fe8ed0-38d4-46d2-a942-7d17cec08385" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC04 - Main Elements Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="1fa95c5e-fc23-454c-a1d6-09fb3b720e86"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8082</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="5d6ffb55-62c4-458a-b6e1-07f245a99fdf"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="c8d02f5b-14ff-45cd-950c-c403850b0447"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshots[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+
+log.info webdata.shippingTables.shippingTable.status.text()
+assert dbdata.ResultSet.Row.DBSTATUS.text() == webdata.shippingTables.shippingTable.status.text()
+assert dbdata.ResultSet.Row.DBDESCRIPTION.text() == webdata.shippingTables.shippingTable.description.text()
+// Need to do assertions for shipping methods.
+//======================
+
+//
+//
+////log.info webdata.shippingTable.status.text()
+//def nshippingmethods= webdata.shippingTable.shippingMethod.size()
+//
+//log.info webdata.shippingTable.shippingRates
+//
+//webdata.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+//def nrates = shippingRate.rate.size()
+//assert nshippingmethods==nrates,'Shipping methods are missing.'
+//}
+////webdata.shippingTable.shippingRates.each(shippingRate ->
+////
+////def nrate = shippingRate.rate.size()
+////
+////
+////}
+//
+////log.info webdata.shippingTable.shippingMethod[0].text()
+////log.info webdata.shippingTable.shippingMethod[1].text()
+////log.info webdata.shippingTable.shippingMethod.size()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1fa95c5e-fc23-454c-a1d6-09fb3b720e86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="f63e4f7c-8c09-4c28-9761-4935aa36df18" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC05 - Shipping Method Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="f8c63505-7428-4430-ab29-7dc8c188755a"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8082</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="72e2222e-c94a-4a4c-9c93-aad808f9634c"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="9f3e83b7-cf7a-4538-be4c-efb96aa23a96"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshots[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+def nshippingmethods= webdata.shippingTable.shippingMethod.size()
+
+//log.info webdata.shippingTable.shippingRates
+log.info webdata.shippingTable.shippingRates.@tierBasis[0]
+
+webdata.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+def nrates = shippingRate.rate.size()
+assert nshippingmethods==nrates,'Shipping methods are missing.'
+
+log.info shippingRate.@threshold
+for (i in 0.. nrates-1)
+{
+	log.info shippingRate.rate[i].@method +' - ' + shippingRate.rate[i].text()
+	//log.info shippingRate.rate[i].text()
+}
+
+}</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f8c63505-7428-4430-ab29-7dc8c188755a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="aaabaa61-272e-4b45-90dd-3a671c3be0a1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC08 - Response Code Validation - MaximumLimitExceeded" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="a85fd91b-2c5b-412e-9775-ce50fc37b95f"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="98f0c3c6-1ac2-41bd-80d9-a85245a946be" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="changeddate" value="2014-07-26T12:30:00-0700123" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="52ca2f5a-e0bb-4b98-afb6-46992708e5dc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC06 - OMX Data Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="628d6e75-5038-4645-9e8b-2f3d1b959d6b"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8082</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="61f25e8a-b050-46af-a8a9-94886943c2c7"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="6ddd440d-49dd-48eb-8e21-f5899e0cf097"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshots[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+
+// OMX Data validation.
+log.info webdata.shippingTables.shippingTable.omxData.@cid[0]
+log.info webdata.shippingTables.shippingTable.omxData[0].omxShippingPolicy.text()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>628d6e75-5038-4645-9e8b-2f3d1b959d6b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="07c02700-03d4-454f-ace9-3a7b06d05871" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC07 - Response Code Validation - OutOfRange" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="bc1f5b72-0adf-4cee-8ea8-7c779a5e0036"><con:settings/><con:config service="ChangedShippingTables" resourcePath="/${#Project#endpath}/shippingtables/changed?after={changeddate}" methodName="Changedshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="078994f9-c4b2-4096-b7fd-116f80892ff4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}/</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/changedshippingtables/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="98f0c3c6-1ac2-41bd-80d9-a85245a946be" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="changeddate" value="2014-07-26T12:30:00-0700123" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>shippingtableID</con:entry><con:entry>changeddate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="8a5fea0b-32f1-488d-be24-b070dc411b9b" name="TS03 - Search for Shipping Tables"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c120af58-ae43-43d5-b5c4-54d1411e1915" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC01 - Schema Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="6a2d0aec-cbcb-4769-842b-6dc42fcb42a5"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="88ea6ab4-0937-45d4-beaf-8f2f1a0de6e8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/searchshippingtables</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f8739064-50b5-4f73-bc83-3884c460a2bd" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>searchcriteria</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="ValidateSchema" id="3dcad605-8458-40fd-8cce-b703dc2cf012"><con:settings/><con:config><script>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+def xsdFile = context.expand( '${#Project#xsdFile}' )
+
+log.info xsdFile
+new File( xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )
+
+}
+//
+//import javax.xml.XMLConstants
+//import javax.xml.transform.stream.StreamSource
+//import javax.xml.validation.*
+//// setup validator
+//Validator validator;
+//def url = "E:\\GR\\KC\\shippingtable-schema.xsd"
+//log.info url
+//URI uri = new URI(url);
+//InputStream inp = uri.toURL().openStream();
+//try
+//{
+//SchemaFactory factory =
+//SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//StreamSource entitySs = new StreamSource(inp);
+//Schema schema = factory.newSchema(entitySs);
+//assert(schema != null);
+//validator = schema.newValidator();
+//}
+//finally
+//{
+//inp.close();
+//inp = null;
+//}
+//
+//
+//
+//def response = context.expand( '${GetShippingInfo#ResponseAsXml}' )
+//
+//
+//
+//log.info response
+//validator.validate(new StreamSource(new StringReader(response)))</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>6a2d0aec-cbcb-4769-842b-6dc42fcb42a5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="83a1f3ce-5612-4711-af01-b152d6807dac" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC02 - Response Code Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="f81de516-ad03-40bd-a6f3-af5a4f9a3b10"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="88ea6ab4-0937-45d4-beaf-8f2f1a0de6e8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/searchshippingtables</con:originalUri><con:assertion type="Invalid HTTP Status Codes" id="dc7bbfed-02ce-4b1f-b47d-db02a73faa8e" name="Invalid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="82183d41-0092-48ad-a6ff-b0885d8d5907" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>searchcriteria</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="fa9b4bd7-8bf3-4eed-ae3b-6c3ca921d00a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC03 - CurrentAsOf Date Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="e311451b-c900-4419-b571-d77fe602940c"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="88ea6ab4-0937-45d4-beaf-8f2f1a0de6e8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/searchshippingtables</con:originalUri><con:assertion type="XPath Match" id="24431945-bc5d-484f-8181-d4d137b42d3e" name="Check count of [currentAsOf]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshots/ns1:currentAsOf)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="67e5c6c3-f72c-4384-9b96-d770bafd9073" name="Check count of [@query]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/shipping/201501';
+count( //ns1:snapshots/@query)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="55d41309-58d0-48e4-8ff7-af610615e5b9" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>searchcriteria</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="39fc2e76-df6d-483b-b038-12c4af224f7f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC04 - Main Elements Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="aae23979-dc96-4247-9332-0925057f9cb0"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="9b0207e9-5d7e-41ad-8531-425f8c583a93" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtables</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="c576decc-a043-4472-ab0b-23b675ea0cdb"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="bd08f592-973a-4619-a4ca-dfaa082500a0"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+assert dbdata.ResultSet.Row.DBSTATUS.text() == webdata.shippingTable.status.text()
+assert dbdata.ResultSet.Row.DBDESCRIPTION.text() == webdata.shippingTable.description.text()
+// Need to do assertions for shipping methods.
+
+
+//
+//
+////log.info webdata.shippingTable.status.text()
+//def nshippingmethods= webdata.shippingTable.shippingMethod.size()
+//
+//log.info webdata.shippingTable.shippingRates
+//
+//webdata.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+//def nrates = shippingRate.rate.size()
+//assert nshippingmethods==nrates,'Shipping methods are missing.'
+//}
+////webdata.shippingTable.shippingRates.each(shippingRate ->
+////
+////def nrate = shippingRate.rate.size()
+////
+////
+////}
+//
+////log.info webdata.shippingTable.shippingMethod[0].text()
+////log.info webdata.shippingTable.shippingMethod[1].text()
+////log.info webdata.shippingTable.shippingMethod.size()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>aae23979-dc96-4247-9332-0925057f9cb0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="adefe98e-47e7-4f48-84db-59d6a50ae534" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC05 - Shipping Method Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="32d5318d-6f1d-4f6f-9781-a458536e8dad"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="9b0207e9-5d7e-41ad-8531-425f8c583a93" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtables</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="92f321b2-f2c5-428c-ae72-67c5253cf690"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="119d73e0-55f7-4306-bc2c-8e4947a2b65c"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+def nshippingmethods= webdata.shippingTables.shippingTable.shippingMethod.size()
+
+//log.info webdata.shippingTable.shippingRates
+log.info webdata.shippingTable.shippingRates.@tierBasis[0]
+
+webdata.shippingTables.shippingTable.shippingRates.shippingRate.each { shippingRate ->
+def nrates = shippingRate.rate.size()
+assert nshippingmethods==nrates,'Shipping methods are missing.'
+
+log.info shippingRate.@threshold
+for (i in 0.. nrates-1)
+{
+	log.info shippingRate.rate[i].@method +' - ' + shippingRate.rate[i].text()
+	//log.info shippingRate.rate[i].text()
+}
+
+}</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>32d5318d-6f1d-4f6f-9781-a458536e8dad</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="6e4079eb-ce92-4e4b-95fe-e2d8b6c137d0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC06 - OMX Data Validation" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="c1180c11-a173-479d-ba53-b985f38beee3"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="9b0207e9-5d7e-41ad-8531-425f8c583a93" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtables</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="e497ed40-6744-402d-ac47-6abb21092912"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName>snapshot</con:dbConnectionName><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password><con:query>select 'A' as dbstatus,'Catalog standard plus 7.50 rush' as dbdescription   from DUAL</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="8622df57-363e-4455-9366-b14238abd517"><con:settings/><con:config><script>def webresponseAsXml = context.expand( '${GetShippingInfo#ResponseAsXml#declare namespace ns1=\'http://wsapi.guthy-renker.com/soma-schema/shipping/201501\'; //ns1:snapshot[1]}' )
+def webdata = new XmlParser().parseText(webresponseAsXml)
+
+def dbresponseAsXml = context.expand( '${JDBC Request#ResponseAsXml#//Results[1]}' )
+def dbdata = new XmlParser().parseText(dbresponseAsXml)
+
+// OMX Data validation.
+log.info webdata.shippingTable.omxData.@cid[0]
+log.info webdata.shippingTable.omxData[0].omxShippingPolicy.text()</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ce4b2bdf-c7d6-4432-a344-6eeba35ecfa4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c1180c11-a173-479d-ba53-b985f38beee3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="a1aa5516-e7a6-46ce-99d5-f7ae73f14645" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC07 - Response Code Validation - MaximumLimitExceeded" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="fb452e63-2371-46c9-81ca-45fa6a1faa3b"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="88ea6ab4-0937-45d4-beaf-8f2f1a0de6e8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/searchshippingtables</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="104aed8f-c711-4f26-96e1-0efac39a70aa" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>searchcriteria</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="91de09cb-691f-45be-8352-11454bdebe86" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC08 - Response Code Validation - InvalidQueryString" searchProperties="true"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="restrequest" name="GetShippingInfo" id="eeb9c8b4-2231-4e97-971e-cc0f47dd320b"><con:settings/><con:config service="Searchshippingtables" resourcePath="/${#Project#endpath}/shippingtables?filter={searchcriteria}" methodName="Searchshippingtables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetShippingInfo" id="88ea6ab4-0937-45d4-beaf-8f2f1a0de6e8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/snapshot/searchshippingtables</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="368633d4-fcb7-4a7e-88b5-d135321f0212" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>searchcriteria</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="OVERRIDE" username="">${#Project#endpoint}</con:endpoint></con:endpointStrategy><con:requirements/><con:properties><con:property><con:name>xsdFile</con:name><con:value>E:\GR\SOMA\XSD\shippingtable-schema.xsd</con:value></con:property><con:property><con:name>endpoint</con:name><con:value>http://localhost:8082/</con:value></con:property><con:property><con:name>after</con:name><con:value/></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name><con:value/></con:property><con:property><con:name>password</con:name><con:value/></con:property><con:property><con:name>endpath</con:name></con:property></con:properties><con:afterLoadScript>import groovy.util.*
+import java.io.File	// You need Java File utils
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+// Get projects active environment
+log.info "Active Environment set to : "+ project.activeEnvironment.name 
+def active_env = context.expand( '${#Project#ActiveEnv}')
+
+// Set this as active environment
+project.setActiveEnvironment(active_env)
+log.info "Confirm Active Env name: " + project.activeEnvironment.name
+
+// Get SoapUI Groovy Utils
+groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+// Get Confg File Location
+def ws = new File(groovyUtils.projectPath).getParentFile()
+def confFile = ws.toString() + "/Config/shipping_soapui.properties.groovy"
+log.info "Config File Name is: " + confFile
+
+// Find active environment and get the endpoint URL
+def config = new ConfigSlurper().parse(new File(confFile).toURL())
+def env = config.active_env
+log.info " - Active Environment is: " + env
+def endpoint = config.endpoints."$env".endpoint
+def path = config.endpoints."$env".endpath
+
+// Set project level property
+project.setPropertyValue( "endpoint",endpoint )
+project.setPropertyValue( "endpath",path )
+log.info "Path - " +path
+def username = config.http_auth.username
+def password = config.http_auth.password
+log.info " - HTTP Authentication user name/password : " + username + " / "+ password
+project.setPropertyValue( "username",username )
+project.setPropertyValue( "password",password )
+
+
+TimeZone.setDefault(TimeZone.getTimeZone('UTC'))
+def afterValue=new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'")
+log.info "After at load.."+afterValue 
+
+// Set default values for 'filter' and 'after'
+project.setPropertyValue( "after",afterValue)
+project.setPropertyValue( "filter","web" )
+project.setPropertyValue( "s_after",afterValue)
+String xsdfilepath = groovyUtils.getProjectPath().replaceAll("Projects" , "XSD")+ "\\shippingtable-schema.xsd"
+project.setPropertyValue( "xsdFile",xsdfilepath)
+
+</con:afterLoadScript><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>snapshot</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password></con:databaseConnection></con:databaseConnectionContainer><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:environment name="CI"><con:service type="REST" name="ReadSpecifiedShippingTable"><con:endpoint>${#Project#endpoint}</con:endpoint></con:service><con:service type="REST" name="ChangedShippingTables"><con:endpoint>${#Project#endpoint}</con:endpoint></con:service><con:service type="REST" name="Searchshippingtables"><con:endpoint>${#Project#endpoint}</con:endpoint></con:service><con:property><con:name>xsdFile</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">E:\GR\SOMA\XSD\shippingtable-schema.xsd</con:value></con:property><con:property><con:name>endpoint</con:name><con:value>http://mocksvc.mulesoft.com</con:value></con:property><con:property><con:name>after</con:name><con:value>2015-02-25T19:09:55Z</con:value></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name><con:value>somapi-autotest</con:value></con:property><con:property><con:name>password</con:name><con:value>p4$$W0rd</con:value></con:property><con:property><con:name>path</con:name><con:value>mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/shippingtable/</con:value></con:property><con:property><con:name>filter</con:name><con:value>web</con:value></con:property><con:property><con:name>s_after</con:name><con:value>2015-02-25T19:09:55Z</con:value></con:property><con:property><con:name>endpath</con:name><con:value>mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot</con:value></con:property><con:property><con:name>xsdfile</con:name><con:value>E:\GR\SOMA\XSD\shippingtable-schema.xsd</con:value></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>snapshot</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/PASS_VALUE@guthsc9sl11.grc-network.net:1521:appdbci</con:connectionString><con:password>APPCSun445</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment></con:soapui-project>

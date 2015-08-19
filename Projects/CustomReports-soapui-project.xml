@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="366932c3-9986-4edb-8d71-cfaba7000760" activeEnvironment="Default" name="CustomReport" resourceRoot="" soapui-version="5.1.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="05666ec4-4bf2-46c9-ba69-f0ca1d55696f" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://mocksvc.mulesoft.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://mocksvc.mulesoft.com</con:endpoint></con:endpoints><con:resource name="LCD95R3" path="/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/pricelist/{pricelistid}" id="36371f0a-bd20-45b5-8263-a4fc50dda5d2"><con:settings/><con:parameters><con:parameter><con:name>pricelistid</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/></con:parameter></con:parameters><con:method name="LCD95R3" id="a72f7aa6-7596-48b4-8a89-36fb5b38f665" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/soma-schema/pricelist/201501">ns:snapshot</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml</con:mediaType><con:status>400</con:status><con:params/><con:element>response</con:element></con:representation><con:request name="Request 1" id="6e797835-e378-47e3-9002-56c261eb82d7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://mocksvc.mulesoft.com</con:endpoint><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/pricelist/LCD95R3</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="pricelistid" value="LCD95R3" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>pricelistid</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="8f910cd3-3ed0-4fe4-9807-dd7a22bf2dd1" name="TestSuite 1"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:testCase id="13e82106-6584-42b0-bdb4-168116d10477" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchOfferAPI" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Multiple Pages</con:setting><con:setting id="GeneratableJUnitReport@Folder"/></con:settings><con:testStep type="datasource" name="DataSource" id="af9b3998-ed84-42d4-9110-7a45d0820877"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Grid"><con:configuration><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row><row>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">LCD95R3&lt;/con:entry></row></con:configuration></con:dataSource><con:property>Pricelist</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="REST Test Request" id="bf436148-e84d-449d-8a5b-c0e01264f7f7"><con:settings/><con:config service="http://mocksvc.mulesoft.com" resourcePath="/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/pricelist/{pricelistid}" methodName="LCD95R3" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" id="6e797835-e378-47e3-9002-56c261eb82d7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://mocksvc.mulesoft.com</con:endpoint><con:request/><con:originalUri>http://mocksvc.mulesoft.com/mocks/bfe5b887-f0c1-4d0b-be73-77edc53ee320/soma-ws/v1/snapshot/pricelist/LCD95R3</con:originalUri><con:assertion type="XPath Match" id="ced36460-2dd5-49c3-9221-c590e50404e9" name="Match content of [@id]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/pricelist/201501';
+//ns1:snapshot[1]/ns1:priceList[1]/@id</path><content>LCD95R3123</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="pricelistid" value="${DataSource#Pricelist}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>pricelistid</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datagen" name="DataGen" id="17cad59b-3192-4088-9296-d825cdcda235"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Script"><con:configuration><script>testRunner.results[testRunner.results.size()-1].status</script></con:configuration><con:name>Results</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property><con:property type="Script"><con:configuration><script>
+def comments=''
+
+testRunner.results[testRunner.results.size()-1].messages.each() { 
+	msg -> 
+	comments= comments +''+ msg 
+	
+	}
+	return comments</script></con:configuration><con:name>Comments</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="75e8c3cc-104a-4b3f-abab-7b144fe2fcc6" disabled="true"><con:settings/><con:config><script>////${=testRunner.results[testRunner.results.size()-1].status}
+////log.info testRunner.getStatus()
+////log.info testRunner.Status
+////log.info testRunner.results[testRunner.results.size()].status
+//log.info testRunner.results[testRunner.results.size()-1].status
+////log.info testRunner.results[testRunner.results.size()-1].messages
+//
+//def comments=''
+//
+//testRunner.results[testRunner.results.size()-1].messages.each() { 
+//	msg -> 
+//	comments= comments +''+ msg 
+//	
+//	}
+//	log.info comments
+////return result=testRunner.results[testRunner.results.size()-1].status
+//
+//object.properties["Results"].value = testRunner.results[testRunner.results.size()-1].status
+//object.properties["Comments"].value = comments
+//
+//// get property value
+//log.info object.getPropertValue( "Comments" )
+//// get property value
+//log.info object.getPropertValue( "Results" )
+//
+</script></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="2dabf09c-4ee5-4726-b773-701fb0e8798c"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="SubReport"><con:configuration/></con:dataSink><con:properties><con:property><con:name>Request</con:name><con:value>${REST Test Request#ResponseAsXml#declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/pricelist/201501'; //ns1:snapshot[1]/ns1:priceList[1]/@id}</con:value></con:property><con:property><con:name>Response</con:name><con:value>${REST Test Request#ResponseAsXml#declare namespace ns1='http://wsapi.guthy-renker.com/soma-schema/pricelist/201501'; //ns1:snapshot[1]/ns1:priceList[1]/@id}</con:value></con:property><con:property><con:name>Results</con:name><con:value>${DataGen#Results}</con:value></con:property><con:property><con:name>Comments</con:name><con:value>${DataGen#Comments}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="ae13cfce-f09a-4fad-bc03-7d42f4635ba3"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>REST Test Request</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>af9b3998-ed84-42d4-9110-7a45d0820877</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>75e8c3cc-104a-4b3f-abab-7b144fe2fcc6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17cad59b-3192-4088-9296-d825cdcda235</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates><con:name>CustomReport</con:name><con:reportType>TESTCASE</con:reportType><con:reportLevel>MAINREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <parameter name="IncludeOverview" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Project Overview"/>
+      <parameterDescription>Includes TestCase Overview information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+      <defaultValueExpression>"../../logos/header_logo.jpg"</defaultValueExpression>
+   </parameter>
+   <pageHeader>
+      <band height="51">
+         <image scaleImage="Clip" hAlign="Right" isUsingCache="false" onErrorType="Blank">
+            <reportElement x="0" y="0" width="535" height="51"/>
+            <imageExpression class="java.lang.String">$P{HeaderLogo}</imageExpression>
+         </image>
+      </band>
+   </pageHeader>
+   <columnHeader>
+      <band height="150">
+         <staticText>
+            <reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+            <textElement/>
+            <text>TestCase Results Report for</text>
+         </staticText>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="MainHeader" x="0" y="35" width="535" height="40"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"${=testCase.name}"</textFieldExpression>
+         </textField>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="310">
+         <!--SUBREPORTS UNDER HERE-->
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="1" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{ReportMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <subreport>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="31" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <dataSourceExpression>$P{TestCaseRequirements}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:RequirementsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="70" width="500" height="30"/>
+            <dataSourceExpression>$P{DataSink}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:Customsubreport"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:subreports>FailedTestStepsReport</con:subreports><con:scope>PROJECT</con:scope></con:reportTemplates><con:reportTemplates><con:name>Customsubreport</con:name><con:reportType>TESTCASE</con:reportType><con:reportLevel>SUBREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <field name="Request" class="java.lang.String"/>
+   <field name="Response" class="java.lang.String"/>
+   <field name="Results" class="java.lang.String"/>
+   <field name="Comments" class="java.lang.String"/>
+   <columnHeader>
+      <band height="59">
+         <textField>
+            <reportElement style="SmallHeader" x="0" y="0" width="535" height="23"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"Test Data Report"</textFieldExpression>
+         </textField>
+         <staticText>
+            <reportElement style="ColumnHeader" x="0" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Request</text>
+         </staticText>
+         <staticText>
+            <reportElement style="ColumnHeader" x="70" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Response</text>
+         </staticText>
+         <staticText>
+            <reportElement style="ColumnHeader" x="140" y="35" width="70" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Results</text>
+         </staticText>
+          <staticText>
+            <reportElement style="ColumnHeader" x="210" y="35" width="100" height="20"/>
+            <textElement textAlignment="Left" verticalAlignment="Middle"/>
+            <text>Comments</text>
+         </staticText>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="20">
+         <textField>
+            <reportElement x="0" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Request}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="70" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Response}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="140" y="1" width="70" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Results}</textFieldExpression>
+         </textField>
+         <textField isStretchWithOverflow="true">
+            <reportElement x="210" y="1" width="350" height="15"/>
+            <textElement textAlignment="Left" verticalAlignment="Top"/>
+            <textFieldExpression class="java.lang.String">$F{Comments}</textFieldExpression>
+         </textField>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:scope>PROJECT</con:scope><con:dataSource xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:reportTemplates><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e649b1a4-8605-44bd-966a-aa197a79d344" activeEnvironment="CI" name="P04 - PIM API TESTS" resourceRoot="" soapui-version="5.1.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestSuite Report"/>
+</xml-fragment>]]></con:setting><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder">C:\test</con:setting></con:settings><con:interface xsi:type="con:RestService" id="a33ede2e-75a3-497e-8ef6-239a42bb8106" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-changed" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="Products" path="/products" id="49ace0fb-5f69-4fab-b459-b994cc114aab"><con:settings/><con:parameters><con:parameter><con:name>changed_after</con:name><con:value>2015-05-13T12:30:00-0700</con:value><con:style>QUERY</con:style><con:default>2015-05-13T12:30:00-0700</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Products" id="e55866b8-72a5-45f8-b9bf-e6306ae12b1a" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element>snapshots</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>406</con:status><con:params/><con:element xmlns:prod="http://csapi-pim-qa.cloudhub.io/api/products">prod:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="f6afbf28-8ad9-4ad6-a757-4e814d772fd3" mediaType="application/json"><con:settings/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>changed_after</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="ec6d36ff-ebb9-4234-a980-a07de0d91d37" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-productmapping-product" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="ProductMappings" path="/productmappings" id="baf7be50-c277-46c1-a81d-d4a657186554"><con:settings/><con:parameters><con:parameter><con:name>products</con:name><con:value>MT3A0750,MT3A0752</con:value><con:style>QUERY</con:style><con:default>MT3A0750,MT3A0752</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="ProductMappings" id="5207ddfa-877c-49ce-9d18-42d2d2c4d953" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:prod="http://csapi-pim-qa.cloudhub.io/api/productMappings">prod:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element>productMappings</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>502</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" id="0681dacb-c6fe-4c6d-8d9b-197cac96598c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/api/productMappings</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>products</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="4b2b3243-cdfa-4005-961f-156c0f92ed83" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-productmapping-plc" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="ProductMappings" path="/productmappings" id="6298fa22-3392-429d-a5f2-30e19b0228b0"><con:settings/><con:parameters><con:parameter><con:name>productLineCode</con:name><con:value>MT</con:value><con:style>QUERY</con:style><con:default>MT</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="ProductMappings" id="1c01d493-7ed9-447f-bc55-28edf54e6a97" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:prod="http://csapi-pim-qa.cloudhub.io/api/productMappings">prod:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element>productMappings</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>502</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" id="43ce4695-dbc4-45d2-b9cd-a2cb29ba0bc0" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/productMappings</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>productLineCode</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="2ada82e3-85fa-45f7-8ca5-65f7aca3ca57" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-productmapping-item" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="ItemMappings" path="/itemmappings" id="ede3560d-a7f0-4f9f-a534-84a9988d2387"><con:settings/><con:parameters><con:parameter><con:name>items</con:name><con:value>MTINP153,MTINV105</con:value><con:style>QUERY</con:style><con:default>MTINP153,MTINV105</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="ItemMappings" id="ea0eeffa-6575-4baf-b5ca-d88d1b41a8cd" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:item="http://csapi-pim-qa.cloudhub.io/api/itemMappings">item:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/pim/product/201503">ns:itemMappings</con:element></con:representation><con:request name="Request 1" id="a29379dc-85cd-4746-be01-3f550fda9178" mediaType="application/json"><con:settings/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>items</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="dee96abc-e4e7-4b16-a72c-25a4496473ae" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-product-specified" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="MT3A0750" path="/products/MT3A0750" id="e25c0469-40da-4f79-b62a-5ce45bb9fc32"><con:settings/><con:parameters/><con:method name="MT3A0750" id="0aac91f3-eb29-484e-b97e-9192953c19d7" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/pim/product/201503">ns:snapshot</con:element></con:representation><con:request name="Request 1" id="898cc288-4cec-48f1-a598-9262e1fae4b2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-pim-qa.cloudhub.io/products/MT3A0750</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="6b40e0ff-edde-4bd7-9181-16072b289be4" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-ProductChanged" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="Products" path="/products" id="9e8e3064-b66b-4205-837f-3bf582fe3803"><con:settings/><con:parameters><con:parameter><con:name>changed_after</con:name><con:value>2015-05-13T12:30:00-07:00</con:value><con:style>QUERY</con:style><con:default>2015-05-13T12:30:00-07:00</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Products" id="c143b32e-bf28-452a-8b1c-2ab2561b9754" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://wsapi.guthy-renker.com/pim/product/201503">ns:snapshots</con:element></con:representation><con:request name="Request 1" id="73a95599-202f-44c9-881f-7c4395723636" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-pim-qa.cloudhub.io/products</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>changed_after</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="edcd7267-bf0d-492a-9ac2-48ba139f1d45" wadlVersion="http://wadl.dev.java.net/2009/02" name="pim-api-product-search" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:endpoints><con:resource name="Products" path="/products" id="d851df55-6900-4e05-8966-27f80d40b2c2"><con:settings/><con:parameters><con:parameter><con:name>filter</con:name><con:value>productLineCode:eq(MT)</con:value><con:style>QUERY</con:style><con:default>productLineCode:eq(MT)</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Products" id="35e090a9-9fd2-4fdc-872a-862aaef27626" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" id="06396f6e-b87c-4dec-93b1-ce1860534110" mediaType="application/json"><con:settings/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="c574ce40-c3dc-4b05-9e73-652748969d72" name="TS01-PIM API POSITIVE TESTS"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1f1c9b01-e029-480b-97a9-6584a762790b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC01-PIM-Product-XSD Validation" searchProperties="true" disabled="true"><con:settings/><con:testStep type="restrequest" name="PIM changed Test Request" id="4155c96d-a5bd-4371-9190-4c71560f2f86"><con:settings/><con:config service="pim-api-changed" resourcePath="/products" methodName="Products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PIM changed Test Request" id="f6afbf28-8ad9-4ad6-a757-4e814d772fd3" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/api/products</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8abb6321-49ed-42ef-9ea2-66a11c0b51d2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>changed_after</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="fcd62f90-d6f0-4ef8-b803-2d82c99bb31a"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${PIM changed Test Request#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiChangedSchemaValidation" id="d61f625d-91dd-4746-806c-5ba9b345fb9d"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>054870a4-b288-4eef-a351-fcad226efc79</con:id><con:isGroup>false</con:isGroup><con:sourceId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="e5698d31-4f07-402c-a4e5-b164252ce673"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="db1695db-2c85-42c1-ba20-4e29a5be17ee" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC02-PIM-ProductMapping-Product-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="PIM-ProductMapping-ProductestRequest" id="52c44c43-4192-48ef-9f81-48b74081d27b"><con:settings/><con:config service="pim-api-productmapping-product" resourcePath="/productmappings" methodName="ProductMappings" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PIM-ProductMapping-ProductestRequest" id="0681dacb-c6fe-4c6d-8d9b-197cac96598c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/api/productMappings</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="e7b9efc2-7b73-40c6-aeca-5052502a12d5" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>products</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="e69f9477-faa9-4358-9cc2-c9d1b50378ae"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${PIM-ProductMapping-ProductestRequest#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiProductMappingProductSchemaValidation" id="531179a6-ded1-4d46-9599-5031db1cc5b2"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>054870a4-b288-4eef-a351-fcad226efc79</con:id><con:isGroup>false</con:isGroup><con:sourceId>52c44c43-4192-48ef-9f81-48b74081d27b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="e5698d31-4f07-402c-a4e5-b164252ce673"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>52c44c43-4192-48ef-9f81-48b74081d27b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="b1fd604c-8d16-4883-baef-82dd6e01102f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC03-PIM-ProductMapping-PLC-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="PIM-ProductMapping-PLC-TestRequest" id="d1d1816e-bb46-4e37-9579-9b9990261893"><con:settings/><con:config service="pim-api-productmapping-plc" resourcePath="/productmappings" methodName="ProductMappings" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PIM-ProductMapping-PLC-TestRequest" id="43ce4695-dbc4-45d2-b9cd-a2cb29ba0bc0" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/api/productMappings</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a43d9af8-8a04-40a8-bf09-c366c4b709e5" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>productLineCode</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="f23f32e3-6d5a-4392-9c8c-aed81cbeb32c"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${PIM-ProductMapping-PLC-TestRequest#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiProductMappingPLCSchemaValidation" id="13c86102-367e-47a1-babf-134863cfae30"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>054870a4-b288-4eef-a351-fcad226efc79</con:id><con:isGroup>false</con:isGroup><con:sourceId>d1d1816e-bb46-4e37-9579-9b9990261893</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="e5698d31-4f07-402c-a4e5-b164252ce673"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b34b6f35-0cae-4db9-acbd-0efdcbfbd968</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="b03243ab-7359-442a-a758-4b53bda26b99" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC04-PIM-ItemMapping-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="PIM-ItemMapping-XSD Validation-TestRequest" id="b34b6f35-0cae-4db9-acbd-0efdcbfbd968"><con:settings/><con:config service="pim-api-productmapping-item" resourcePath="/itemmappings" methodName="ItemMappings" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PIM-ItemMapping-XSD Validation-TestRequest" id="a29379dc-85cd-4746-be01-3f550fda9178" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/api/itemMappings</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="4ac76f09-2e74-4464-9543-867b4f085c00" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>items</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="83b68843-64f0-491e-b486-eb48dba903de"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${PIM-ItemMapping-XSD Validation-TestRequest#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiitemMappingSchemaValidation" id="1e06b356-2ca2-43e9-ac91-ff36efb4cfbf"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ef04aea8-9289-470b-9fa8-e7f0e86a520a</con:id><con:isGroup>false</con:isGroup><con:sourceId>b34b6f35-0cae-4db9-acbd-0efdcbfbd968</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="8a41bfb4-cd16-4d9c-8500-f1364c20bf08"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d1d1816e-bb46-4e37-9579-9b9990261893</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="f0709eeb-455d-419c-962b-b71d4ba22b99" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC05-PIM-ProductSpecified-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Test Request" id="d73f58a2-c0d0-4eba-bc8b-aa4635be2266"><con:settings/><con:config service="pim-api-product-specified" resourcePath="/products/MT3A0750" methodName="MT3A0750" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" id="898cc288-4cec-48f1-a598-9262e1fae4b2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-pim-qa.cloudhub.io/products/MT3A0750</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d429c446-344f-443b-bcb2-0adf06baba27" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="43a3eb73-53d6-48b3-89d2-303ccd9ef7ab"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${REST Test Request#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiProductSpecifiedSchemaValidation" id="1e4ab65a-fa45-4238-8afd-7715f14f773c"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ef04aea8-9289-470b-9fa8-e7f0e86a520a</con:id><con:isGroup>false</con:isGroup><con:sourceId>d73f58a2-c0d0-4eba-bc8b-aa4635be2266</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="8a41bfb4-cd16-4d9c-8500-f1364c20bf08"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d1d1816e-bb46-4e37-9579-9b9990261893</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="feb6c08e-c6c2-42d0-892e-a8c09d9a1eff" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC06-PIM-ProductChanged-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Test Request" id="91771299-a8c0-4b26-9f29-7bbd114ab7f5"><con:settings/><con:config service="pim-api-ProductChanged" resourcePath="/products" methodName="Products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" id="73a95599-202f-44c9-881f-7c4395723636" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>https://csapi-pim-qa.cloudhub.io/products</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="21a6cc32-fe52-48ac-8220-608a2b52666f" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>changed_after</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="421fe271-6186-49aa-8048-69232bfa10af"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${REST Test Request#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiProductChangedSchemaValidation" id="251680eb-fb98-44f3-bcff-b2c311e01747"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ef04aea8-9289-470b-9fa8-e7f0e86a520a</con:id><con:isGroup>false</con:isGroup><con:sourceId>91771299-a8c0-4b26-9f29-7bbd114ab7f5</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="8a41bfb4-cd16-4d9c-8500-f1364c20bf08"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d1d1816e-bb46-4e37-9579-9b9990261893</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="88e878c4-08ff-4d8e-b1d9-f34ba9d53979" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS01-TC07-PIM-ProductSearch-XSD Validation" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Test Request" id="0d989b18-c4a7-4626-8a83-84bc23f13b6e"><con:settings/><con:config service="pim-api-product-search" resourcePath="/products" methodName="Products" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" id="06396f6e-b87c-4dec-93b1-ce1860534110" mediaType="application/json"><con:settings/><con:request/><con:originalUri>https://csapi-pim-qa.cloudhub.io/products</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="943b41da-d9ff-4cef-ad4c-2edc40f8d02e" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>filter</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Get Rest Response" id="a0c4f14b-7b4c-4f75-9642-5462736d6ef9"><con:settings/><con:config><script>// Obtain API response into a variable
+def responseAsXml = context.expand( '${REST Test Request#ResponseAsXml}' )
+
+//put reposne in contex
+context.setProperty("xmlResponse", responseAsXml)</script></con:config></con:testStep><con:testStep type="assertionteststep" name="PimApiProductSearchSchemaValidation" id="8ed2eee7-7d9f-48d3-a22b-b5195defe791"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ef04aea8-9289-470b-9fa8-e7f0e86a520a</con:id><con:isGroup>false</con:isGroup><con:sourceId>0d989b18-c4a7-4626-8a83-84bc23f13b6e</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="8a41bfb4-cd16-4d9c-8500-f1364c20bf08"><con:configuration><scriptText>import javax.xml.XMLConstants
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.SchemaFactory
+import groovy.util.*
+import java.io.File	// You need Java File utils
+
+String response = context.xmlResponse
+
+log.info "response is: " + response
+
+// Get XSD File Location
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def Path = new File(projectFilePath).getParentFile()
+def projectPath = Path.toString()
+def sourcePath = new File(projectPath).getParentFile()
+def xsdFile = sourcePath.toString() + "/XSD/pim-product-schema.xsd"
+log.info "XSD File Name is: " + xsdFile
+
+
+try{
+new File(xsdFile).withReader { xsd ->
+  SchemaFactory.newInstance( XMLConstants.W3C_XML_SCHEMA_NS_URI )
+               .newSchema( new StreamSource( xsd ) )
+               .newValidator()
+               .validate( new StreamSource( new StringReader( response ) ) )               
+     log.info "PIM API API Schema Validation Success"
+     assert true 
+} } catch (Throwable e)
+	{
+		log.info "Exception while validating XSD Schema ..."+e.getMessage()
+		assert false : "Expected = PIM API Schema Validation Success | Actual = $e"
+	}
+
+
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4155c96d-a5bd-4371-9190-4c71560f2f86</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d1d1816e-bb46-4e37-9579-9b9990261893</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="977df742-d0a1-42b7-a816-e54483a5464f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="test count" searchProperties="true" disabled="true"><con:settings/><con:testStep type="restrequest" name="REST Test Request" id="df75e99c-821b-450b-acf8-d05da0e33ea7"><con:settings/><con:config service="pim-api-productmapping-plc" resourcePath="/productmappings" methodName="ProductMappings" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" id="43ce4695-dbc4-45d2-b9cd-a2cb29ba0bc0" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:request/><con:originalUri>http://csapi-pim-qa.cloudhub.io/productMappings</con:originalUri><con:assertion type="XPath Match" id="0aec552d-44ec-4abb-b6af-4e77e543fe84" name="Check count of [productMapping]"><con:configuration><path>declare namespace ns1='http://wsapi.guthy-renker.com/pim/product/201503';
+count( //ns1:productMappings/ns1:productMapping)</path><content>978</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>productLineCode</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>d73f58a2-c0d0-4eba-bc8b-aa4635be2266</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>91771299-a8c0-4b26-9f29-7bbd114ab7f5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0d989b18-c4a7-4626-8a83-84bc23f13b6e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="OVERRIDE">${#Project#endpoint}</con:endpoint></con:endpointStrategy><con:requirements/><con:properties><con:property><con:name>endpoint</con:name><con:value>https://csapi-segmentation-qa.cloudhub.io</con:value></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name><con:value>rnalluri</con:value></con:property><con:property><con:name>password</con:name><con:value>Welcome1</con:value></con:property></con:properties><con:afterLoadScript>import groovy.util.*
+import java.io.File	// You need Java File utils
+
+// Get projects active environment
+log.info "Active Environment set to : "+ project.activeEnvironment.name 
+def active_env = context.expand( '${#Project#ActiveEnv}' )
+
+// Set this as active environment
+project.setActiveEnvironment(active_env)
+log.info "Confirm Active Env name: " + project.activeEnvironment.name
+
+// Get SoapUI Groovy Utils
+groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+//Get Project path
+def project = com.eviware.soapui.model.support.ModelSupport.getModelItemProject(context.getModelItem())
+def projectFilePath = project.getPath()
+def parentPath = new File(projectFilePath).getParentFile()
+def projectPath = parentPath.toString()
+def sourcePath = new File(projectPath).getParentFile()
+
+// Get Confg File Location
+def confFile = sourcePath.toString() + "/Config/pim-api.properties.groovy"
+log.info "Config File Name is: " + confFile
+
+// Find active environment and get the endpoint URL
+def config = new ConfigSlurper().parse(new File(confFile).toURL())
+def env = config.active_env
+log.info " - Active Environment is: " + env
+def endpoint = config.endpoints."$env".endpoint
+//def path = config.endpoints."$env".path
+
+// Set project level property
+project.setPropertyValue( "endpoint",endpoint.toString() )
+//project.setPropertyValue( "path",path.toString() )
+
+def username = config.http_auth.username
+def password = config.http_auth.password
+log.info " - HTTP Authentication user name/password : " + username + " / "+ password
+project.setPropertyValue( "username",username.toString() )
+project.setPropertyValue( "password",password.toString() )
+
+
+
+</con:afterLoadScript><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>c</con:password></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:x</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>sun.jdbc.odbc.JdbcOdbcDriver</con:driver><con:connectionString>jdbc:odbc:df?user=fc&amp;password=PASS_VALUE</con:connectionString><con:password>ffdf</con:password></con:databaseConnection></con:databaseConnectionContainer><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:reportTemplates><con:name>Changed Offer Report</con:name><con:reportType>TESTSUITE</con:reportType><con:reportLevel>MAINREPORT</con:reportLevel><con:data><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportTemplate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <!--FIELDS & PARAMS-->
+   <title>
+      <band height="70">
+         <textField>
+            <reportElement x="159" y="13" width="229" height="42"/>
+            <textElement>
+               <font size="26"/>
+            </textElement>
+            <textFieldExpression class="java.lang.String">$F{name} + " Report"</textFieldExpression>
+         </textField>
+      </band>
+   </title>
+   <pageHeader>
+      <band/>
+   </pageHeader>
+   <detail>
+      <band height="122">
+         <!--SUBREPORTS UNDER HERE-->
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{FailedTestSteps}</dataSourceExpression>
+            <subreportExpression>"subreport:FailedTestStepsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{TestCaseCoverage}</dataSourceExpression>
+            <subreportExpression>"subreport:TestCaseCoverageChart"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="500" height="30"/>
+            <dataSourceExpression>$P{TestStepResults}</dataSourceExpression>
+            <subreportExpression>"subreport:TestStepResultsReport"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+</jasperReport>]]></con:data><con:subreports>FailedTestStepsReport</con:subreports><con:subreports>TestCaseCoverageChart</con:subreports><con:subreports>TestStepResultsReport</con:subreports><con:scope>PROJECT</con:scope></con:reportTemplates><con:reportTemplates>
+  <con:name>Changed Offer Test Suite Report</con:name>
+  <con:reportType>TESTSUITE</con:reportType>
+  <con:reportLevel>SUBREPORT</con:reportLevel>
+  <con:nameInReport>FailedTestSteps</con:nameInReport>
+  <con:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FailedTestSteps" language="groovy" pageWidth="535" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <parameter name="FlowLayout" class="java.lang.Boolean"/>
+   <field name="testStepName" class="java.lang.String"/>
+   <field name="messages" class="java.util.List"/>
+   <field name="detail" class="java.lang.String"/>
+   <field name="icon" class="java.lang.String"/>
+   <detail>
+      <band height="101">
+         <break>
+            <reportElement positionType="Float" x="0" y="1" width="100" height="1">
+               <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+            </reportElement>
+         </break>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="Code" x="1" y="73" width="535" height="27"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">$F{detail}</textFieldExpression>
+         </textField>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="ColumnHeader" x="1" y="4" width="534" height="30" isRemoveLineWhenBlank="true"/>
+            <box bottomPadding="0">
+               <pen lineStyle="Double"/>
+               <topPen lineStyle="Double"/>
+               <leftPen lineStyle="Double"/>
+               <bottomPen lineStyle="Double"/>
+               <rightPen lineStyle="Double"/>
+            </box>
+            <textElement verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"Failed TestStep: " + $F{testStepName}</textFieldExpression>
+         </textField>
+         <textField>
+            <reportElement x="0" y="34" width="535" height="28"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">$F{messages}</textFieldExpression>
+         </textField>
+         <line>
+            <reportElement x="1" y="67" width="534" height="3"/>
+         </line>
+      </band>
+   </detail>
+</jasperReport>]]></con:data>
+  <con:description>NO DESC</con:description>
+  <con:scope>PROJECT</con:scope>
+  <con:dataSource>ModelItem Properties</con:dataSource>
+</con:reportTemplates><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:environment name="CI"><con:service type="REST" name="SearchOfferAPI"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://10.92.41.155:8380</con:endpoint></con:service><con:service type="REST" name="pim-api-changed"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-productmapping-product"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-productmapping-plc"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-productmapping-item"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-product-specified"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-ProductChanged"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:service type="REST" name="pim-api-product-search"><con:endpoint>https://csapi-pim-qa.cloudhub.io</con:endpoint></con:service><con:property><con:name>endpoint</con:name><con:value>http://csapi-pim-qa.cloudhub.io</con:value></con:property><con:property><con:name>ActiveEnv</con:name><con:value>CI</con:value></con:property><con:property><con:name>username</con:name><con:value>rnalluri</con:value></con:property><con:property><con:name>password</con:name><con:value>Welcome1</con:value></con:property><con:property><con:name>afterUpdate</con:name><con:value>2015-02-11T02:43:30Z</con:value></con:property><con:property><con:name>s_after</con:name><con:value>2015-05-05T21:36:46Z</con:value></con:property><con:property><con:name>filepathloaddata</con:name><con:value/></con:property><con:property><con:name>tdFileXLSX</con:name><con:value/></con:property><con:property><con:name>path</con:name><con:value>[:]</con:value></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password/></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/APPCSun445@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SetupCIbase/APPC53Bqwz@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:setupciprocs/APPC53procs@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:SETUPSNAPSHOT/APPTA7gSap@//ebsqa-scan.grc-network.net:1521/s_appdbtst</con:connectionString><con:password>sdsd</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:environment name="QA"><con:service type="REST" name="SearchOfferAPI"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://10.92.41.155:8380</con:endpoint></con:service><con:service type="REST" name="pim-api-changed"><con:endpoint/></con:service><con:service type="REST" name="pim-api-productmapping-product"><con:endpoint/></con:service><con:service type="REST" name="pim-api-productmapping-plc"><con:endpoint/></con:service><con:service type="REST" name="pim-api-productmapping-item"><con:endpoint/></con:service><con:service type="REST" name="pim-api-product-specified"><con:endpoint/></con:service><con:service type="REST" name="pim-api-ProductChanged"><con:endpoint/></con:service><con:service type="REST" name="pim-api-product-search"><con:endpoint/></con:service><con:property><con:name>endpoint</con:name><con:value/></con:property><con:property><con:name>ActiveEnv</con:name><con:value/></con:property><con:property><con:name>username</con:name><con:value/></con:property><con:property><con:name>password</con:name><con:value/></con:property><con:databaseConnectionContainer><con:databaseConnection><con:name>Setup</con:name><con:connectionString>jdbc:oracle:thin:SETUP/APPCAr35ex@//guthsc9sl11.grc-network.net:1521/appdbci</con:connectionString></con:databaseConnection><con:databaseConnection><con:name>Snp</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:x</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Base</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>Procs</con:name><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:x/PASS_VALUE@127.0.0.1:1521:z</con:connectionString><con:password>y</con:password></con:databaseConnection><con:databaseConnection><con:name>SnpQA</con:name><con:driver>COM.cloudscape.core.JDBCDriver</con:driver><con:connectionString>jdbc:cloudscape:sds?user=SETUPSNAPSHOT&amp;password=PASS_VALUE</con:connectionString><con:password>sdsd</con:password></con:databaseConnection></con:databaseConnectionContainer></con:environment><con:authRepository/></con:soapui-project>
